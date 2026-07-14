@@ -2,7 +2,7 @@ import Script from "next/script";
 import "./globals.css";
 
 export const metadata = {
-  title: "Zhemin Lin — Research & Projects",
+  title: "Zhemin",
   description: "Zhemin Lin 的个人网站：基本面研究、项目、文章与推荐。",
 };
 
