@@ -61,7 +61,7 @@ button {
 
 main {
   width: 100%;
-  max-width: 720px;
+  max-width: 760px;
   min-height: 100svh;
   margin-inline: auto;
   padding: 112px 22px 56px;
@@ -85,7 +85,7 @@ h1 {
   position: fixed;
   z-index: 10;
   top: 24px;
-  right: max(22px, calc((100vw - 720px) / 2 + 22px));
+  right: max(22px, calc((100vw - 760px) / 2 + 22px));
   display: flex;
   gap: 6px;
 }
@@ -318,7 +318,7 @@ h2 {
 }
 
 .article-main {
-  max-width: 720px;
+  max-width: 760px;
 }
 
 .article-copy {
