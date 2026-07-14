@@ -1,0 +1,48 @@
+---
+
+### Introduction
+
+Two years ago, I wrote an article exploring [Pendle’s industry opportunity](https://zhemin.substack.com/p/pendle-7b4). At the time, ETH restaking and liquid-staking-token projects were attracting intense attention, and those projects used points as a marketing tool. Users had substantial demand to trade point exposure, and Pendle, as a yield-swap market, was well placed to serve it. The article discussed Pendle’s market opportunity optimistically while also identifying risks at the end.
+
+Nearly two years have passed. Much has changed on-chain, but several structural problems remain. The most important is that the on-chain world still lacks enough assets that generate external cash flow. That has remained true for years and continues to constrain further growth of interest-rate swap markets such as Pendle. As the regulatory environment changes, the path for bringing assets with meaningful external cash flow on-chain is becoming clearer and will be an important area to watch.
+
+### How Pendle’s Pool Mix Has Changed
+
+Pendle’s TVL began rising sharply in early 2024 because of LST-related projects. The deeper driver was the emergence of points as a popular marketing model. EigenLayer, now EigenCloud, Ether.fi, and others first attracted deposits by issuing points, then distributed project tokens to point holders in stages. Early depositors earned very large returns, so points quickly became a widely accepted marketing tool. Other asset classes, including Ethena’s USDe, adopted the same approach until it became almost standard for cold-starting a new project.
+
+Pendle was designed to create a market for swapping the yields of underlying assets, but during this phase it listed many pools whose underlying assets generated almost no yield.
+
+![Pendle PT market share by major category](/articles/pendle-market-observation/pendle-pt-market-size.png)
+
+Source: [jonaso / Dune](https://dune.com/queries/5881265/9507190)
+
+The chart shows how Pendle’s market mix changed. LST projects with very little external cash flow from their underlying assets—ETH-related and BTC-related in the chart—lost share. Project teams must repeatedly launch new rounds of points or token incentives to create demand, which is fundamentally unsustainable.
+
+USDe has maintained some share because the project earns external cash flow from funding rates. Funding-rate income also gives sUSDe the high volatility and unpredictability described in the [earlier article](https://zhemin.substack.com/i/164813251/crypto利率互换市场空间), so there is still genuine demand to swap sUSDe yields. By contrast, trading volume in USDe markets based purely on speculation around points is gradually shrinking.
+
+The emerging HYPE-related market resembles the LST-ETH market. Its underlying yield comes from validator operations, is low, and barely moves. Most HYPE stakers earn around 2.2%, leaving little demand for yield swaps. Current growth mainly reflects expectations of points or airdrops.
+
+### No Ingredients, No Feast
+
+Few on-chain assets generate genuine external cash flow. The main categories are exchanges, lending, and funding-rate arbitrage. Consider funding rates. Before October 11, aggregate BTC [open interest](https://velo.xyz/futures/BTC) across Binance, OKX, Bybit, Hyperliquid, and Deribit was about US$35 billion. ETH open interest at the same time was roughly US$21 billion and SOL about US$6 billion, for US$62 billion combined. If funding rates could remain at 0.01% every eight hours, annual funding income would be approximately US$6.8 billion.
+
+In other words, the capacity of Pendle’s mainstream-token funding-rate segment is essentially trading changes in that US$6.8 billion income pool. Demand rises when those changes become more volatile.
+
+On-chain lending is smaller still. Aave, the largest protocol, had about US$22.2 billion lent out; Morpho was second at US$3.4 billion and Maple third at only US$1.5 billion. Together they had approximately US$27.1 billion in loans. If borrowers pay an assumed 6%, slightly above the risk-free rate, mainstream lending protocols generate about US$1.6 billion in lending income—roughly one quarter of the funding-rate segment described above.
+
+Exchanges generate the strongest external cash flow among on-chain businesses, but neither the profit black boxes of centralized exchanges nor Hyperliquid’s buyback-and-burn method of returning value fits Pendle V2’s underlying-asset splitting mechanism particularly well.
+
+### Where Are the Ingredients?
+
+As US regulation becomes clearer, bringing real-world assets on-chain is no longer limited to simple tokenized Treasury securities. US Treasuries provide stable external cash flow, but their yield curve is too smooth and transparent to offer much room for disagreement or trading.
+
+If Treasuries form the foundation of the “risk-free rate,” Pendle needs assets that carry a “risk premium.” A suitable underlying asset must meet three demanding conditions: **durable external cash flow, high yield volatility, and changes in yield that are difficult to predict.**
+
+- Corporate bonds: operating performance, industry policy, and sudden news can instantly change the market’s pricing of default risk. Lower-rated high-yield bonds fit Pendle especially well.
+- ABS, including MBS: these are very large markets whose yields are usually less volatile. The tradable variable may be prepayment risk; Pendle could let users express views on the effective duration of MBS.
+- Equities: traditional dividends are not suitable because they are relatively stable and paid too infrequently, usually quarterly or annually. A better case may be interest earned by lending shares to short sellers, particularly when borrow rates surge during a short squeeze.
+- Rental markets:
+  - Traditional REITs: rents are generally fixed in leases and change little, so yields are not volatile. Hotels and short-term rentals may be exceptions.
+  - Assets with strong supply cycles: examples include GPU rentals, maritime shipping capacity, and aircraft leasing.
+
+Pendle’s history reflects the evolution of on-chain assets: from an unsustainable points-marketing boom back toward demand for genuine external cash flow. The limited scale of native on-chain yield—such as funding rates and lending—forces attention toward the much larger real economy. Corporate bonds that price credit default, MBS whose effective duration changes, and rental markets driven by sudden supply-demand imbalances all carry real risk premiums and may provide Pendle with a lasting source of growth.

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="160" viewBox="0 0 360 160" role="img" aria-labelledby="title desc">
+  <title id="title">Research workflow</title>
+  <desc id="desc">Three stages connected from question to evidence to judgment.</desc>
+  <rect width="360" height="160" fill="#eeeeee"/>
+  <path d="M92 80h58m60 0h58" fill="none" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="m143 74 8 6-8 6m118-12 8 6-8 6" fill="none" stroke="#8a8a8a" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  <circle cx="64" cy="80" r="28" fill="#fcfcfc" stroke="#4f4f4f" stroke-width="2"/>
+  <circle cx="182" cy="80" r="28" fill="#fcfcfc" stroke="#4f4f4f" stroke-width="2"/>
+  <circle cx="300" cy="80" r="28" fill="#fcfcfc" stroke="#4f4f4f" stroke-width="2"/>
+  <text x="64" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1a1a1a">1</text>
+  <text x="182" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1a1a1a">2</text>
+  <text x="300" y="86" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#1a1a1a">3</text>
+</svg>
