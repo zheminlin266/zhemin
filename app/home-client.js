@@ -160,7 +160,7 @@ export default function HomeClient() {
         <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading"><h2 id="articles-heading">{copy.articlesHeading}</h2><LinkList items={copy.articles} /></section>
         <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading"><h2 id="recommendations-heading">{copy.recommendationsHeading}</h2><LinkList items={copy.recommendations} /></section>
 
-        <footer className="footer rise" style={{ "--delay": "300ms" }}><a className="back-to-top" href="#top">{copy.backToTop}</a><div className="footer-meta"><nav className="footer-social" aria-label="Social links"><a href="https://github.com/zheminlin266" target="_blank" rel="noreferrer">GitHub</a></nav><span>@Zhemin</span></div></footer>
+        <footer className="footer rise" style={{ "--delay": "300ms" }}><a className="back-to-top" href="#top">{copy.backToTop}</a><div className="footer-meta"><nav className="footer-social" aria-label="Social links"><a href="https://x.com/zheminlin" target="_blank" rel="noreferrer">X (Twitter)</a><a href="https://github.com/zheminlin266" target="_blank" rel="noreferrer">GitHub</a></nav><span>@Zhemin</span></div></footer>
       </main>
     </>
   );
