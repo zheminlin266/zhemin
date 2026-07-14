@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import { copyEmailAddress } from "./email-copy.mjs";
 import { languageFromStorage, nextLanguage, nextTheme } from "./preferences.mjs";
 
 const content = {
@@ -18,6 +19,9 @@ const content = {
     articlesHeading: "文章",
     recommendationsHeading: "推荐",
     backToTop: "返回顶部",
+    copyEmail: "复制邮箱地址",
+    emailCopied: "复制成功",
+    emailCopyFailed: "复制失败",
     photoLabel: "Zhemin Lin 的个人照片",
     projects: [
       ["金银铜供需信息", "https://copper-gold-silver-info.vercel.app/"],
@@ -50,6 +54,9 @@ const content = {
     articlesHeading: "Articles",
     recommendationsHeading: "Recommendations",
     backToTop: "Back to top",
+    copyEmail: "Copy email address",
+    emailCopied: "Copied",
+    emailCopyFailed: "Copy failed",
     photoLabel: "Portrait of Zhemin Lin",
     projects: [
       ["Gold, Silver & Copper Supply–Demand", "https://copper-gold-silver-info.vercel.app/"],
@@ -97,10 +104,29 @@ function LinkList({ items }) {
   );
 }
 
+function copyWithSelection(text) {
+  const previousFocus = document.activeElement;
+  const field = document.createElement("textarea");
+  field.value = text;
+  field.setAttribute("readonly", "");
+  field.style.position = "fixed";
+  field.style.opacity = "0";
+  document.body.append(field);
+  try {
+    field.select();
+    // ponytail: execCommand is a compatibility fallback; remove it once Clipboard API support is universal for the site's browsers.
+    return document.execCommand("copy");
+  } finally {
+    field.remove();
+    previousFocus?.focus();
+  }
+}
+
 export default function HomeClient() {
   const [language, setLanguage] = useState("cn");
   const [theme, setTheme] = useState("light");
   const [controlsHidden, setControlsHidden] = useState(false);
+  const [emailCopyNotice, setEmailCopyNotice] = useState({ status: "idle", x: 0, y: 0, sequence: 0 });
   const copy = content[language];
 
   useEffect(() => {
@@ -126,6 +152,17 @@ export default function HomeClient() {
     return () => window.removeEventListener("scroll", update);
   }, []);
 
+  useEffect(() => {
+    if (emailCopyNotice.status === "idle") return undefined;
+
+    const sequence = emailCopyNotice.sequence;
+    const timer = window.setTimeout(() => {
+      setEmailCopyNotice((notice) => notice.sequence === sequence ? { ...notice, status: "idle" } : notice);
+    }, 600);
+
+    return () => window.clearTimeout(timer);
+  }, [emailCopyNotice.status, emailCopyNotice.sequence]);
+
   function toggleLanguage() {
     const next = nextLanguage(language);
     setLanguage(next);
@@ -138,6 +175,20 @@ export default function HomeClient() {
     setTheme(next);
     document.documentElement.dataset.theme = next;
     try { window.localStorage.setItem("theme", next); } catch { /* ponytail: the active theme still works without persistence. */ }
+  }
+
+  async function handleEmailCopy(event) {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const point = event.detail === 0
+      ? { x: rect.right, y: rect.bottom }
+      : { x: event.clientX, y: event.clientY };
+
+    try {
+      await copyEmailAddress({ clipboard: navigator.clipboard, fallback: copyWithSelection });
+      setEmailCopyNotice((notice) => ({ status: "copied", ...point, sequence: notice.sequence + 1 }));
+    } catch {
+      setEmailCopyNotice((notice) => ({ status: "failed", ...point, sequence: notice.sequence + 1 }));
+    }
   }
 
   return (
@@ -160,8 +211,9 @@ export default function HomeClient() {
         <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading"><h2 id="articles-heading">{copy.articlesHeading}</h2><LinkList items={copy.articles} /></section>
         <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading"><h2 id="recommendations-heading">{copy.recommendationsHeading}</h2><LinkList items={copy.recommendations} /></section>
 
-        <footer className="footer rise" style={{ "--delay": "300ms" }}><a className="back-to-top" href="#top">{copy.backToTop}</a><div className="footer-meta"><nav className="footer-social" aria-label="Social links"><a href="https://x.com/zheminlin" target="_blank" rel="noreferrer">X (Twitter)</a><a href="https://github.com/zheminlin266" target="_blank" rel="noreferrer">GitHub</a></nav><span>@Zhemin</span></div></footer>
+        <footer className="footer rise" style={{ "--delay": "300ms" }}><a className="back-to-top" href="#top">{copy.backToTop}</a><div className="footer-meta"><nav className="footer-social" aria-label="Social links"><a href="https://x.com/zheminlin" target="_blank" rel="noreferrer">X (Twitter)</a><a href="https://github.com/zheminlin266" target="_blank" rel="noreferrer">GitHub</a></nav><button className="footer-copy-button" type="button" onClick={handleEmailCopy} aria-label={copy.copyEmail}>Email</button></div></footer>
       </main>
+      <span className={`copy-toast ${emailCopyNotice.status !== "idle" ? "is-visible" : ""}`} style={{ "--copy-x": `${emailCopyNotice.x}px`, "--copy-y": `${emailCopyNotice.y}px` }} role="status" aria-live="polite">{emailCopyNotice.status === "copied" ? copy.emailCopied : emailCopyNotice.status === "failed" ? copy.emailCopyFailed : ""}</span>
     </>
   );
 }
