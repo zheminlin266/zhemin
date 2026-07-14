@@ -362,7 +362,7 @@ h2 {
 
 .article-body p,
 .article-body li {
-  color: var(--body);
+  color: var(--foreground);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
