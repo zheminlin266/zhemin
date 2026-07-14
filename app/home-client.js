@@ -10,8 +10,9 @@ const content = {
     themeLight: "切换为浅色模式",
     themeDark: "切换为深色模式",
     intro: [
-      "站在科技、商业和人文的交汇点。问好问题，享受过程。欢迎纠错和理性探讨。",
-      "曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业。曾在华润万象生活负责商业数据分析。",
+      "站在科技、商业和人文的交汇点。",
+      "问好问题，享受过程。欢迎纠错和理性探讨。",
+      "曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业。前华润万象生活商业数据分析师。",
     ],
     projectsHeading: "项目",
     articlesHeading: "文章",
@@ -41,8 +42,9 @@ const content = {
     themeLight: "Switch to light mode",
     themeDark: "Switch to dark mode",
     intro: [
-      "At the intersection of technology, business, and the humanities. Ask good questions, enjoy the process. Corrections and reasoned discussion are welcome.",
-      "I conducted fundamental research at a private equity fund and a family office, with a focus on technology and consumer sectors. Previously, I worked in commercial data analytics at China Resources Mixc Lifestyle.",
+      "At the intersection of technology, business, and the humanities.",
+      "Ask good questions, enjoy the process. Corrections and reasoned discussion are welcome.",
+      "I conducted fundamental research at a private equity fund and a family office, with a focus on technology and consumer sectors. Formerly, I was a commercial data analyst at China Resources Mixc Lifestyle.",
     ],
     projectsHeading: "Projects",
     articlesHeading: "Articles",
