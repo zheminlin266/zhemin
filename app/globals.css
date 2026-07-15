@@ -544,6 +544,10 @@ h2 {
   border-radius: 0;
 }
 
+.article-image[src="/articles/pendle-industry/cleared-swaps.png"] {
+  width: 400px;
+}
+
 .article-figure figcaption {
   margin-top: 8px;
   color: var(--muted);
@@ -760,7 +764,8 @@ h2 {
   }
 
   .toc-list {
-    max-width: 260px;
+    width: 100%;
+    max-width: none;
   }
 
   .article-header {
