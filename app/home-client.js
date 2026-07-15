@@ -24,7 +24,7 @@ const content = {
     emailCopyFailed: "复制失败",
     photoLabel: "Zhemin Lin 的个人照片",
     projects: [
-      ["金银铜供需信息", "https://copper-gold-silver-info.vercel.app/"],
+      ["金银铜供需信息", "https://metals.zhemin.ltd/"],
       ["AI RAG Site Chat", "https://github.com/zheminlin266/AI-RAG-site-chat"],
     ],
     articles: [
@@ -59,7 +59,7 @@ const content = {
     emailCopyFailed: "Copy failed",
     photoLabel: "Portrait of Zhemin Lin",
     projects: [
-      ["Gold, Silver & Copper Supply–Demand", "https://copper-gold-silver-info.vercel.app/"],
+      ["Gold, Silver & Copper Supply–Demand", "https://metals.zhemin.ltd/"],
       ["AI RAG Site Chat", "https://github.com/zheminlin266/AI-RAG-site-chat"],
     ],
     articles: [
