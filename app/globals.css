@@ -560,7 +560,7 @@ h2 {
   z-index: 5;
   top: 50%;
   left: 26px;
-  width: 176px;
+  width: 240px;
   height: 294px;
   transform: translateY(-50%);
 }
@@ -705,6 +705,27 @@ h2 {
   }
 }
 
+@media (min-width: 1221px) and (max-width: 1320px) {
+  .article-toc {
+    width: 200px;
+  }
+}
+
+@media (max-width: 1220px) {
+  .article-toc {
+    position: static;
+    width: 100%;
+    height: auto;
+    margin-bottom: 40px;
+    transform: none;
+  }
+
+  .toc-list {
+    width: 100%;
+    max-width: none;
+  }
+}
+
 @media (max-width: 800px) {
   main {
     width: auto;
@@ -752,19 +773,6 @@ h2 {
   }
 
   .article-main {
-    max-width: none;
-  }
-
-  .article-toc {
-    position: static;
-    width: 100%;
-    height: auto;
-    margin-bottom: 40px;
-    transform: none;
-  }
-
-  .toc-list {
-    width: 100%;
     max-width: none;
   }
 
