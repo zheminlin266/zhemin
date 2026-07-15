@@ -194,7 +194,7 @@ export default function HomeClient() {
   return (
     <>
       <div className={`controls scroll-hide-controls ${controlsHidden ? "is-hidden" : ""}`} aria-label={language === "cn" ? "页面设置" : "Page settings"} aria-hidden={controlsHidden}>
-        <button className="control-button language-button" type="button" onClick={toggleLanguage} aria-label={copy.switchLabel} tabIndex={controlsHidden ? -1 : 0}>{language === "cn" ? "EN" : "中文"}</button>
+        <button className="control-button language-button" type="button" onClick={toggleLanguage} aria-label={copy.switchLabel} tabIndex={controlsHidden ? -1 : 0}>{language === "cn" ? "EN" : "文"}</button>
         <button className="control-button icon-button" type="button" onClick={toggleTheme} aria-label={theme === "light" ? copy.themeDark : copy.themeLight} tabIndex={controlsHidden ? -1 : 0}>{theme === "light" ? <MoonIcon /> : <SunIcon />}</button>
       </div>
 

@@ -85,7 +85,7 @@ h1 {
   position: fixed;
   z-index: 10;
   top: 24px;
-  right: max(22px, calc((100vw - 760px) / 2 + 22px));
+  right: max(22px, calc(50% - 358px));
   display: flex;
   gap: 6px;
 }
@@ -105,6 +105,8 @@ h1 {
 }
 
 .language-button {
+  width: 38px;
+  padding: 0;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 0.04em;
