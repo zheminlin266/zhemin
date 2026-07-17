@@ -47,7 +47,7 @@ const content = {
     themeDark: "Switch to dark mode",
     intro: [
       "At the intersection of technology, business, and the humanities.",
-      "Ask good questions, enjoy the process. Corrections and reasoned discussion are welcome.",
+      "Ask good questions. Enjoy the process. Corrections and thoughtful discussion are always welcome.",
       "I conducted fundamental research at a private equity fund and a family office, with a focus on technology and consumer sectors. Formerly, I was a commercial data analyst at China Resources Mixc Lifestyle.",
     ],
     projectsHeading: "Projects",
