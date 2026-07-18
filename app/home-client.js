@@ -25,7 +25,6 @@ const content = {
     photoLabel: "Zhemin Lin 的个人照片",
     projects: [
       ["金银铜供需信息", "https://metals.zhemin.ltd/"],
-      ["AI RAG Site Chat", "https://github.com/zheminlin266/AI-RAG-site-chat"],
     ],
     articles: [
       ["铜供需研究小结", "/articles/copper-supply-demand", "2026"],
@@ -60,7 +59,6 @@ const content = {
     photoLabel: "Portrait of Zhemin Lin",
     projects: [
       ["Gold, Silver & Copper Supply–Demand", "https://metals.zhemin.ltd/"],
-      ["AI RAG Site Chat", "https://github.com/zheminlin266/AI-RAG-site-chat"],
     ],
     articles: [
       ["Copper Supply and Demand: Research Notes", "/articles/copper-supply-demand", "2026"],
