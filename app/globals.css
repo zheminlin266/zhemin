@@ -367,7 +367,7 @@ h2 {
 }
 
 .article-header h1 {
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 600;
   line-height: 28px;
 }
@@ -418,7 +418,7 @@ h2 {
 .article-body h2 {
   margin: 48px 0 16px;
   color: var(--foreground);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 26px;
 }
@@ -426,7 +426,7 @@ h2 {
 .article-body h3 {
   margin: 32px 0 10px;
   color: var(--foreground);
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   line-height: 24px;
 }
