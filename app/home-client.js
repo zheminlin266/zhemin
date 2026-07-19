@@ -62,7 +62,7 @@ const content = {
     ],
     articles: [
       ["Copper Supply and Demand: Research Notes", "/articles/copper-supply-demand", "2026"],
-      ["Pendle Market Update: No Ingredients, No Feast", "/articles/pendle-market-observation", "2026"],
+      ["Pendle Market Outlook: You Can’t Cook Without Ingredients", "/articles/pendle-market-observation", "2026"],
       ["Pendle: Market Opportunity and Competitive Position", "/articles/pendle-industry", "2025"],
       ["Lucky Companies and Power Structures", "/articles/lucky-companies", "2024"],
       ["Three Questions for Fundamental Research", "/articles/three-questions", "2023"],
