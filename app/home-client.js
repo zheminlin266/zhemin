@@ -48,7 +48,7 @@ const content = {
     intro: [
       "In this era of rapid technological change, AI and the internet are the most powerful tools at our disposal.",
       "The real work is finding the right angle, asking the right questions, setting the right priorities, and owning the decisions that follow.",
-      "I conducted fundamental research at a private equity fund and a family office, with a focus on technology and consumer sectors. Formerly, I was a commercial data analyst at China Resources Mixc Lifestyle.",
+      "I conducted fundamental research at a private equity fund and family office, focusing on technology and consumer sectors. Previously, a commercial data analyst at CR Mixc Lifestyle.",
       "Corrections and thoughtful discussion are always welcome.",
     ],
     projectsHeading: "Projects",
