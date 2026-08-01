@@ -25,6 +25,7 @@ const content = {
     emailCopyFailed: "复制失败",
     photoLabel: "Zhemin Lin 的个人照片",
     projects: [
+      ["对声网的投资研究", "https://agora.zhemin.ltd/", "2026"],
       ["金银铜供需信息", "https://metals.zhemin.ltd/"],
     ],
     articles: [
@@ -60,6 +61,7 @@ const content = {
     emailCopyFailed: "Copy failed",
     photoLabel: "Portrait of Zhemin Lin",
     projects: [
+      ["agora equity research", "https://agora.zhemin.ltd/", "2026"],
       ["Gold, Silver & Copper Supply–Demand", "https://metals.zhemin.ltd/"],
     ],
     articles: [
