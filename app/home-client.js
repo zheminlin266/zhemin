@@ -61,7 +61,7 @@ const content = {
     emailCopyFailed: "Copy failed",
     photoLabel: "Portrait of Zhemin Lin",
     projects: [
-      ["agora equity research", "https://agora.zhemin.ltd/", "2026"],
+      ["Agora Equity Research", "https://agora.zhemin.ltd/", "2026"],
       ["Gold, Silver & Copper Supply–Demand", "https://metals.zhemin.ltd/"],
     ],
     articles: [
