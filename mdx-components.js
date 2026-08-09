@@ -1,10 +1,19 @@
 import { Children, cloneElement, isValidElement } from "react";
+import { imageDimensions } from "./app/content/image-dimensions.mjs";
 
-function MarkdownImage({ alt = "", title, ...props }) {
+function MarkdownImage({ alt = "", title, src, width, height, ...props }) {
+  const dimensions = imageDimensions[src];
+  const className = src === "/articles/pendle-industry/cleared-swaps.png"
+    ? "article-image article-image-compact"
+    : "article-image";
+
   return (
     <img
       {...props}
-      className="article-image"
+      src={src}
+      width={width ?? dimensions?.[0]}
+      height={height ?? dimensions?.[1]}
+      className={className}
       alt={alt}
       title={title}
       loading="lazy"

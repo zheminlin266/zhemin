@@ -3,6 +3,7 @@ import createMDX from "@next/mdx";
 /** @type {import("next").NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx"],
+  poweredByHeader: false,
   async headers() {
     return [
       {
@@ -11,6 +12,7 @@ const nextConfig = {
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
           { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Strict-Transport-Security", value: "max-age=31536000" },
           {
             key: "Permissions-Policy",
             value: "camera=(), microphone=(), geolocation=()",

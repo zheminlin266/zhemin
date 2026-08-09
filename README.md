@@ -37,7 +37,14 @@ npm run build
 - 中文：`/articles/example`
 - English：`/en/articles/example`
 
-新增内容应同时维护中英文版本，并保持对应 URL 的语义一致。
+新增内容时：
+
+1. 在 `app/content/registry.mjs` 登记路径、日期、双语标题和描述。
+2. 在内容目录同时维护 `content.cn.mdx` 与 `content.en.mdx`。
+3. 为中文和 `/en` 英文路径各提供一个轻量 `page.js` 包装页。
+4. 图片放在 `public/` 对应路径，提供准确的替代文本和来源，并在 `app/content/image-dimensions.mjs` 登记尺寸。
+
+`npm test` 会检查注册表、双语路由、标题层级与本地资源引用。
 
 ## Visual_Rules
 
