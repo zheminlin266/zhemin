@@ -54,20 +54,20 @@ export default function HomePage({ language }) {
     <>
       <SiteControls language={language} alternateHref={homePath(language === "cn" ? "en" : "cn")} labels={languageLabels} />
       <main lang={language === "en" ? "en" : "zh-CN"}>
-        <header className="intro-grid rise" style={{ "--delay": "40ms" }}>
-          <div className="intro-copy">
-            <h1 id="top">Zhemin Lin</h1>
+        <header className="intro rise" style={{ "--delay": "40ms" }}>
+          <h1 id="top" className="intro-name">Zhemin Lin</h1>
+          <div className="intro-grid">
             <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
-          </div>
-          <div className="portrait">
-            <Image
-              className="portrait-image"
-              src="/zhemin-profile.webp"
-              alt={copy.photoLabel}
-              fill
-              priority
-              sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 210px"
-            />
+            <div className="portrait">
+              <Image
+                className="portrait-image"
+                src="/zhemin-profile.webp"
+                alt={copy.photoLabel}
+                fill
+                priority
+                sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 210px"
+              />
+            </div>
           </div>
         </header>
 
