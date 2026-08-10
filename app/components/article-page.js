@@ -6,7 +6,8 @@ import { entryPath, homePath, SITE_URL } from "../content/registry.mjs";
 const ui = {
   cn: {
     switchLabel: "切换为英文",
-    themeLabel: "深色主题",
+    themeDark: "切换为深色主题",
+    themeLight: "切换为浅色主题",
     toc: "目录",
     tocOpen: "收起文章目录",
     tocClosed: "展开文章目录",
@@ -15,7 +16,8 @@ const ui = {
   },
   en: {
     switchLabel: "Switch to Chinese",
-    themeLabel: "Dark theme",
+    themeDark: "Switch to dark theme",
+    themeLight: "Switch to light theme",
     toc: "Contents",
     tocOpen: "Collapse table of contents",
     tocClosed: "Expand table of contents",
@@ -47,7 +49,7 @@ export default function ArticlePage({ language, entry, children }) {
       <SiteControls
         language={language}
         alternateHref={entryPath(entry, otherLanguage)}
-        labels={{ settings: copy.settings, switchLabel: copy.switchLabel, themeLabel: copy.themeLabel }}
+        labels={{ settings: copy.settings, switchLabel: copy.switchLabel, themeDark: copy.themeDark, themeLight: copy.themeLight }}
       />
       <main className="article-main" lang={language === "en" ? "en" : "zh-CN"}>
         {entry.hasToc && <ArticleToc labels={{ toc: copy.toc, tocOpen: copy.tocOpen, tocClosed: copy.tocClosed }} />}

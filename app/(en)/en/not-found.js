@@ -7,7 +7,7 @@ export default function EnglishNotFound() {
       <SiteControls
         language="en"
         alternateHref="/"
-        labels={{ settings: "Page settings", switchLabel: "Switch to Chinese", themeLabel: "Dark theme" }}
+        labels={{ settings: "Page settings", switchLabel: "Switch to Chinese", themeDark: "Switch to dark theme", themeLight: "Switch to light theme" }}
       />
       <main className="state-page" lang="en">
         <p className="role">404</p>

@@ -10,7 +10,8 @@ export const homeCopy = {
     title: "Zhemin Lin",
     description: "Zhemin Lin 的个人网站：基本面研究、项目、文章与推荐。",
     switchLabel: "切换为英文",
-    themeLabel: "深色主题",
+    themeDark: "切换为深色主题",
+    themeLight: "切换为浅色主题",
     settings: "页面设置",
     intro: [
       "在这个因科技而剧变的时代，AI和互联网是人最好的杠杆。",
@@ -32,7 +33,8 @@ export const homeCopy = {
     title: "Zhemin Lin",
     description: "Zhemin Lin’s personal website for fundamental research, projects, articles, and recommendations.",
     switchLabel: "Switch to Chinese",
-    themeLabel: "Dark theme",
+    themeDark: "Switch to dark theme",
+    themeLight: "Switch to light theme",
     settings: "Page settings",
     intro: [
       "In this era of rapid technological change, AI and the internet are the most powerful tools at our disposal.",

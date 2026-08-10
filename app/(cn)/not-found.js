@@ -7,7 +7,7 @@ export default function NotFound() {
       <SiteControls
         language="cn"
         alternateHref="/en"
-        labels={{ settings: "页面设置", switchLabel: "切换为英文", themeLabel: "深色主题" }}
+        labels={{ settings: "页面设置", switchLabel: "切换为英文", themeDark: "切换为深色主题", themeLight: "切换为浅色主题" }}
       />
       <main className="state-page" lang="zh-CN">
         <p className="role">404</p>

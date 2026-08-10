@@ -49,7 +49,7 @@ export default function SiteControls({ language, alternateHref, labels }) {
         className="control-button icon-button"
         type="button"
         onClick={toggleTheme}
-        aria-label={labels.themeLabel}
+        aria-label={theme === "dark" ? labels.themeLight : labels.themeDark}
         aria-pressed={theme === "dark"}
       >
         <MoonIcon />

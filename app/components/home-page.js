@@ -46,7 +46,8 @@ export default function HomePage({ language }) {
   const languageLabels = {
     settings: copy.settings,
     switchLabel: copy.switchLabel,
-    themeLabel: copy.themeLabel,
+    themeDark: copy.themeDark,
+    themeLight: copy.themeLight,
   };
 
   return (
