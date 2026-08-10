@@ -14,8 +14,8 @@ export const homeCopy = {
     themeLight: "切换为浅色主题",
     settings: "页面设置",
     intro: [
-      "在这个因科技而剧变的时代，AI和互联网是人最好的杠杆。",
-      "人需要做的是找好视角，提好问题，给对权重，承担选择。",
+      "在这个因科技而剧变的时代，战术勤奋弥补不了战略懒惰。",
+      "真正重要的是找好视角，提好问题，给对权重，承担选择。",
       "曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业。前华润万象生活商业数据分析师。",
       "欢迎纠错和理性探讨。",
     ],
@@ -37,7 +37,7 @@ export const homeCopy = {
     themeLight: "Switch to light theme",
     settings: "Page settings",
     intro: [
-      "In this era of rapid technological change, AI and the internet are the most powerful tools at our disposal.",
+      "In an age of rapid technological change, tactical execution can’t make up for poor strategic thinking.",
       "The real work is finding the right angle, asking the right questions, setting the right priorities, and owning the decisions that follow.",
       "I conducted fundamental research at a private equity fund and family office, focusing on technology and consumer sectors. Previously, a commercial data analyst at CR Mixc Lifestyle.",
       "Corrections and thoughtful discussion are always welcome.",
