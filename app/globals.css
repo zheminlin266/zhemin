@@ -2,12 +2,11 @@
   --background: #fcfcfc;
   --foreground: #1a1a1a;
   --body: #4f4f4f;
-  --muted: #8a8a8a;
-  --faint: #b8b8b8;
+  --muted: #6c6c6c;
+  --faint: #6c6c6c;
   --border: #e3e3e3;
   --hover: #eeeeee;
   --portrait-start: #dedede;
-  --portrait-end: #a8a8a8;
   --focus: #1a1a1a;
 }
 
@@ -15,12 +14,11 @@
   --background: #171717;
   --foreground: #f2f2f2;
   --body: #c7c7c7;
-  --muted: #8d8d8d;
-  --faint: #686868;
+  --muted: #929292;
+  --faint: #929292;
   --border: #343434;
   --hover: #292929;
   --portrait-start: #454545;
-  --portrait-end: #252525;
   --focus: #f2f2f2;
 }
 
@@ -88,6 +86,8 @@ h1 {
   right: max(22px, calc(50% - 358px));
   display: flex;
   gap: 6px;
+  border-radius: 8px;
+  background: var(--background);
 }
 
 .control-button {
@@ -101,6 +101,7 @@ h1 {
   background: transparent;
   color: var(--muted);
   cursor: pointer;
+  text-decoration: none;
   transition: background-color 150ms ease, color 150ms ease;
 }
 
@@ -126,20 +127,19 @@ h1 {
   stroke-width: 1.6;
 }
 
+.theme-icon-sun,
+:root[data-theme="dark"] .theme-icon-moon {
+  display: none;
+}
+
+:root[data-theme="dark"] .theme-icon-sun {
+  display: block;
+}
+
 .control-button:hover,
 .control-button:focus-visible {
   background: var(--hover);
   color: var(--foreground);
-}
-
-.scroll-hide-controls {
-  transition: opacity 160ms ease, transform 160ms ease;
-}
-
-.scroll-hide-controls.is-hidden {
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-8px);
 }
 
 .control-button:focus-visible,
@@ -191,10 +191,6 @@ h1 {
   margin-top: 32px;
 }
 
-.section.notes {
-  margin-top: 32px;
-}
-
 h2 {
   margin-bottom: 8px;
   color: var(--muted);
@@ -205,6 +201,8 @@ h2 {
 
 .project-list {
   margin: 0 -12px;
+  padding: 0;
+  list-style: none;
 }
 
 .project-row {
@@ -219,28 +217,14 @@ h2 {
   transition: background-color 150ms ease;
 }
 
-.project-copy,
-.project-meta {
-  display: flex;
-  align-items: baseline;
-}
-
-.project-copy {
-  min-width: 0;
-  gap: 10px;
-}
-
 .project-title {
   color: var(--foreground);
 }
 
-.project-description,
 .project-meta {
+  display: flex;
+  align-items: baseline;
   color: var(--muted);
-}
-
-.project-description,
-.project-meta {
   font-size: 14px;
 }
 
@@ -405,10 +389,6 @@ h2 {
   line-height: 24px;
 }
 
-.article-body > p:first-child {
-  color: var(--foreground);
-}
-
 .article-body h2,
 .article-body h3,
 .article-body h4 {
@@ -474,7 +454,8 @@ h2 {
   text-underline-offset: 4px;
 }
 
-.article-body a:hover {
+.article-body a:hover,
+.article-body a:focus-visible {
   text-decoration-color: var(--foreground);
 }
 
@@ -544,7 +525,7 @@ h2 {
   border-radius: 0;
 }
 
-.article-image[src="/articles/pendle-industry/cleared-swaps.png"] {
+.article-image-compact {
   width: 400px;
 }
 
@@ -565,6 +546,10 @@ h2 {
   transform: translateY(-50%);
 }
 
+.article-toc.is-loading {
+  visibility: hidden;
+}
+
 .toc-toggle {
   display: inline-flex;
   min-height: 28px;
@@ -583,6 +568,10 @@ h2 {
 .toc-toggle:focus-visible {
   background: var(--hover);
   color: var(--foreground);
+}
+
+.toc-toggle:disabled {
+  cursor: default;
 }
 
 .menu-icon {
@@ -681,9 +670,9 @@ h2 {
 }
 
 .toc-toggle:focus-visible,
-.toc-list:focus-visible,
 .toc-list a:focus-visible,
 .article-back:focus-visible,
+.article-body a:focus-visible,
 .article-footer a:focus-visible {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
@@ -715,6 +704,7 @@ h2 {
   .article-toc {
     position: static;
     width: 100%;
+    min-height: 28px;
     height: auto;
     margin-bottom: 40px;
     transform: none;
@@ -755,15 +745,6 @@ h2 {
     align-items: flex-start;
   }
 
-  .project-copy {
-    display: block;
-  }
-
-  .project-description {
-    display: block;
-    margin-top: 2px;
-  }
-
   .project-meta .arrow {
     display: none;
   }
@@ -780,10 +761,6 @@ h2 {
     margin-bottom: 40px;
   }
 
-  .article-section {
-    margin-top: 40px;
-  }
-
   .article-footer {
     margin-top: 88px;
   }
@@ -792,14 +769,13 @@ h2 {
 @media (max-width: 520px) {
   .intro-grid {
     grid-template-columns: minmax(0, 1fr) 96px;
-    align-items: stretch;
+    align-items: start;
     gap: 20px;
   }
 
   .portrait {
     width: 96px;
-    height: auto;
-    aspect-ratio: auto;
+    aspect-ratio: 4 / 5;
     justify-self: end;
   }
 
