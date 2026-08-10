@@ -158,13 +158,13 @@ h1 {
   gap: clamp(40px, 6vw, 88px);
 }
 
-.intro-copy {
-  padding-top: 6px;
+.intro-name {
+  margin-bottom: 20px;
+  white-space: nowrap;
 }
 
 .bio {
   max-width: 680px;
-  margin-top: 20px;
   color: var(--body);
 }
 
