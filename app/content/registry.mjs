@@ -182,7 +182,7 @@ export const entries = [
     slug: "understanding-flow",
     date: "2026-08",
     hasToc: false,
-    title: { cn: "对于心流的理解", en: "Understanding Flow" },
+    title: { cn: "对于心流的理解", en: "Understanding Flow State" },
     description: {
       cn: "关于心流、创造、快乐，以及理性自我与感性自我之间关系的思考。",
       en: "A reflection on flow, creativity, enjoyment, and the tension between the rational and emotional selves.",
