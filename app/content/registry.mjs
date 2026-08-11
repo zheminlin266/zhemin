@@ -181,6 +181,7 @@ export const entries = [
     section: "recommendations",
     slug: "understanding-flow",
     date: "2026-08",
+    year: "2023",
     hasToc: false,
     title: { cn: "对于心流的理解", en: "Understanding Flow State" },
     description: {
