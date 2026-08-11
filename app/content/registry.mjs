@@ -177,6 +177,19 @@ export const entries = [
     },
     displayDate: { cn: "2019 年 4 月", en: "April 2019" },
   },
+  {
+    section: "recommendations",
+    slug: "understanding-flow",
+    date: "2026-08",
+    year: "2023",
+    hasToc: false,
+    title: { cn: "对于心流的理解", en: "Understanding Flow State" },
+    description: {
+      cn: "关于心流、创造、快乐，以及理性自我与感性自我之间关系的思考。",
+      en: "A reflection on flow, creativity, enjoyment, and the tension between the rational and emotional selves.",
+    },
+    displayDate: { cn: "2026 年 8 月", en: "August 2026" },
+  },
 ];
 
 export function entryPath(entry, language) {
