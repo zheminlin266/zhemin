@@ -167,18 +167,6 @@ export const entries = [
   },
   {
     section: "recommendations",
-    slug: "mental-models",
-    date: "2019-04",
-    hasToc: false,
-    title: { cn: "王川：为什么思维模型是最重要的财富（一）", en: "Wang Chuan: Why Mental Models Are the Most Important Wealth (I)" },
-    description: {
-      cn: "关于思维模型、问题选择、技术基础设施和新旧价值链变迁的文章。",
-      en: "An essay on mental models, problem selection, technological infrastructure, and shifts between old and new value chains.",
-    },
-    displayDate: { cn: "2019 年 4 月", en: "April 2019" },
-  },
-  {
-    section: "recommendations",
     slug: "understanding-flow",
     date: "2026-08",
     year: "2023",
@@ -189,6 +177,18 @@ export const entries = [
       en: "A reflection on flow, creativity, enjoyment, and the tension between the rational and emotional selves.",
     },
     displayDate: { cn: "2026 年 8 月", en: "August 2026" },
+  },
+  {
+    section: "recommendations",
+    slug: "mental-models",
+    date: "2019-04",
+    hasToc: false,
+    title: { cn: "王川：为什么思维模型是最重要的财富（一）", en: "Wang Chuan: Why Mental Models Are the Most Important Wealth (I)" },
+    description: {
+      cn: "关于思维模型、问题选择、技术基础设施和新旧价值链变迁的文章。",
+      en: "An essay on mental models, problem selection, technological infrastructure, and shifts between old and new value chains.",
+    },
+    displayDate: { cn: "2019 年 4 月", en: "April 2019" },
   },
 ];
 
