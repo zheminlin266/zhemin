@@ -1,51 +1,46 @@
-# zhemin-portfolio
+# zhemin.ltd
 
-个人网站，使用 Next.js、React 和 MDX 构建。
+This repository contains the source for [zhemin.ltd](https://www.zhemin.ltd/), a bilingual personal website by Zhemin Lin. The site brings together a concise biography, research projects, essays, and curated recommendations. It is designed as a quiet reading space for notes on technology, consumer businesses, investing, and questions worth revisiting.
 
-## 安装
+## Stack
+
+- Next.js App Router
+- React
+- MDX for long-form content
+- Static generation with bilingual Chinese and English routes
+
+## Local development
+
+Install dependencies and start the development server:
 
 ```bash
 npm ci
-```
-
-## 开发
-
-```bash
 npm run dev
 ```
 
-## 测试
+Run the test suite:
 
 ```bash
 npm test
 ```
 
-`npm run check` 保留为现有测试命令的兼容入口。
-
-## 构建
+Create a production build:
 
 ```bash
 npm run build
 ```
 
-构建前会自动执行测试。
+The build runs the tests automatically.
 
-## 双语内容约定
+## Content conventions
 
-中文页面继续使用现有 URL；对应的英文页面使用同一路径加 `/en`，例如：
+- Register every article or recommendation in `app/content/registry.mjs` with its route, date, bilingual title, and description.
+- Maintain both `content.cn.mdx` and `content.en.mdx` files for published content.
+- Provide lightweight page wrappers for the Chinese route and its `/en` counterpart.
+- Store local images in `public/`, add accurate alt text, and register their intrinsic dimensions in `app/content/image-dimensions.mjs`.
 
-- 中文：`/articles/example`
-- English：`/en/articles/example`
+Chinese pages keep the existing URL structure. English pages use the same path below `/en`, for example `/articles/example` and `/en/articles/example`.
 
-新增内容时：
+## Visual rules
 
-1. 在 `app/content/registry.mjs` 登记路径、日期、双语标题和描述。
-2. 在内容目录同时维护 `content.cn.mdx` 与 `content.en.mdx`。
-3. 为中文和 `/en` 英文路径各提供一个轻量 `page.js` 包装页。
-4. 图片放在 `public/` 对应路径，提供准确的替代文本和来源，并在 `app/content/image-dimensions.mjs` 登记尺寸。
-
-`npm test` 会检查注册表、双语路由、标题层级与本地资源引用。
-
-## Visual_Rules
-
-页面视觉规范见 [`Visual_Rules.md`](./Visual_Rules.md)。新增或调整界面时应遵循其中的字体、布局、色彩、组件、交互和无障碍约定。
+New or adjusted interface work should follow [`Visual Rules.md`](./Visual_Rules.md), which documents the site's typography, layout, colors, components, interaction, motion, and accessibility conventions.
