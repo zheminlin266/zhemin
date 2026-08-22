@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { copyEmailAddress } from "../email-copy.mjs";
 
 function copyWithSelection(text) {
@@ -24,8 +25,12 @@ function copyWithSelection(text) {
 
 export default function EmailCopyButton({ labels }) {
   const [notice, setNotice] = useState({ status: "idle", x: 0, y: 0 });
+  const [portalTarget, setPortalTarget] = useState(null);
   const timerRef = useRef(null);
 
+  useEffect(() => {
+    setPortalTarget(document.body);
+  }, []);
   useEffect(() => () => window.clearTimeout(timerRef.current), []);
 
   async function handleCopy(event) {
@@ -50,19 +55,23 @@ export default function EmailCopyButton({ labels }) {
       ? labels.emailCopyFailed
       : "";
 
+  const toast = (
+    <span
+      className={`copy-toast ${notice.status !== "idle" ? "is-visible" : ""}`}
+      style={{ "--copy-x": `${notice.x}px`, "--copy-y": `${notice.y}px` }}
+      role="status"
+      aria-live="polite"
+    >
+      {message}
+    </span>
+  );
+
   return (
     <>
       <button className="footer-copy-button" type="button" onClick={handleCopy} aria-label={labels.copyEmail}>
         Email
       </button>
-      <span
-        className={`copy-toast ${notice.status !== "idle" ? "is-visible" : ""}`}
-        style={{ "--copy-x": `${notice.x}px`, "--copy-y": `${notice.y}px` }}
-        role="status"
-        aria-live="polite"
-      >
-        {message}
-      </span>
+      {portalTarget && createPortal(toast, portalTarget)}
     </>
   );
 }
