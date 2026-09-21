@@ -41,7 +41,8 @@ export default function ArticlePage({ language, entry, children }) {
   };
 
   return (
-    <>
+    // Wrap the page so client navigation scrolls to this y=0 box, not to the offset controls.
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replaceAll("<", "\\u003c") }}
@@ -69,6 +70,6 @@ export default function ArticlePage({ language, entry, children }) {
           </footer>
         </article>
       </main>
-    </>
+    </div>
   );
 }

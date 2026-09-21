@@ -3,7 +3,8 @@ import SiteControls from "../../components/site-controls";
 
 export default function EnglishNotFound() {
   return (
-    <>
+    // Wrap the page so client navigation scrolls to this y=0 box, not to the offset controls.
+    <div>
       <SiteControls
         language="en"
         alternateHref="/"
@@ -14,6 +15,6 @@ export default function EnglishNotFound() {
         <h1>This page does not exist.</h1>
         <Link className="state-link" href="/en">Back home</Link>
       </main>
-    </>
+    </div>
   );
 }

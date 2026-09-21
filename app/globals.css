@@ -62,7 +62,7 @@ main {
   max-width: 760px;
   min-height: 100svh;
   margin-inline: auto;
-  padding: 112px 22px 56px;
+  padding: 28px 22px 56px;
   box-sizing: border-box;
 }
 
@@ -79,15 +79,24 @@ h1 {
   line-height: 28px;
 }
 
+.home-page main {
+  padding-top: 52px;
+}
+
 .controls {
-  position: fixed;
+  position: absolute;
   z-index: 10;
-  top: 24px;
+  /* Center the 38px buttons on the first 28px row below main's 28px top padding. */
+  top: 23px;
   right: max(22px, calc(50% - 358px));
   display: flex;
   gap: 6px;
   border-radius: 8px;
   background: var(--background);
+}
+
+.home-page .controls {
+  top: 47px;
 }
 
 .control-button {
@@ -140,16 +149,6 @@ h1 {
 .control-button:focus-visible {
   background: var(--hover);
   color: var(--foreground);
-}
-
-.scroll-hide-controls {
-  transition: opacity 160ms ease, transform 160ms ease;
-}
-
-.scroll-hide-controls.is-hidden {
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-8px);
 }
 
 .control-button:focus-visible,
@@ -368,10 +367,10 @@ h2 {
 
 .article-back {
   display: inline-block;
-  margin-bottom: 32px;
+  margin-bottom: 26px;
   color: var(--muted);
   font-size: 14px;
-  line-height: 22px;
+  line-height: 28px;
   text-decoration: none;
   transition: color 150ms ease;
 }
@@ -563,6 +562,7 @@ h2 {
 .toc-toggle {
   display: inline-flex;
   min-height: 28px;
+  vertical-align: top;
   align-items: center;
   gap: 8px;
   padding: 3px 7px 3px 4px;
@@ -730,11 +730,10 @@ h2 {
   main {
     width: auto;
     margin: 0 20px;
-    padding: 80px 0 40px;
+    padding: 28px 0 40px;
   }
 
   .controls {
-    top: 18px;
     right: 20px;
   }
 

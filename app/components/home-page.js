@@ -51,7 +51,8 @@ export default function HomePage({ language }) {
   };
 
   return (
-    <>
+    // Wrap the page so client navigation scrolls to this y=0 box, not to the offset controls.
+    <div className="home-page">
       <SiteControls language={language} alternateHref={homePath(language === "cn" ? "en" : "cn")} labels={languageLabels} />
       <main lang={language === "en" ? "en" : "zh-CN"}>
         <header className="intro rise" style={{ "--delay": "40ms" }}>
@@ -95,6 +96,6 @@ export default function HomePage({ language }) {
           </div>
         </footer>
       </main>
-    </>
+    </div>
   );
 }
