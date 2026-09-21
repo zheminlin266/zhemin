@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { nextTheme, shouldHideControls } from "../preferences.mjs";
+import { nextTheme } from "../preferences.mjs";
 
 function SunIcon() {
   return (
@@ -23,17 +23,9 @@ function MoonIcon() {
 
 export default function SiteControls({ language, alternateHref, labels }) {
   const [theme, setTheme] = useState(null);
-  const [controlsHidden, setControlsHidden] = useState(false);
 
   useEffect(() => {
     setTheme(document.documentElement.dataset.theme === "dark" ? "dark" : "light");
-  }, []);
-
-  useEffect(() => {
-    const update = () => setControlsHidden(shouldHideControls(window.scrollY));
-    update();
-    window.addEventListener("scroll", update, { passive: true });
-    return () => window.removeEventListener("scroll", update);
   }, []);
 
   function toggleTheme() {
@@ -50,16 +42,14 @@ export default function SiteControls({ language, alternateHref, labels }) {
 
   return (
     <nav
-      className={`controls scroll-hide-controls ${controlsHidden ? "is-hidden" : ""}`}
+      className="controls"
       aria-label={labels.settings}
-      aria-hidden={controlsHidden}
       lang={language === "en" ? "en" : "zh-CN"}
     >
       <Link
         className="control-button language-button"
         href={alternateHref}
         aria-label={labels.switchLabel}
-        tabIndex={controlsHidden ? -1 : 0}
       >
         {language === "cn" ? "EN" : "文"}
       </Link>
@@ -69,7 +59,6 @@ export default function SiteControls({ language, alternateHref, labels }) {
         onClick={toggleTheme}
         aria-label={theme === "dark" ? labels.themeLight : labels.themeDark}
         aria-pressed={theme === "dark"}
-        tabIndex={controlsHidden ? -1 : 0}
       >
         <MoonIcon />
         <SunIcon />
