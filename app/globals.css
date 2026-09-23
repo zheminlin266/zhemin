@@ -217,6 +217,7 @@ h2 {
   display: inline-block;
   width: .7rem;
   height: .7rem;
+  margin-right: .7rem;
   background: var(--foreground);
   vertical-align: -1px;
 }
