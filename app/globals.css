@@ -213,10 +213,11 @@ h2 {
   line-height: 20px;
 }
 
-.section h2 > span[aria-hidden="true"] {
-  margin-right: 4px;
-  font-size: 20px;
-  line-height: 0;
+.section-marker {
+  display: inline-block;
+  width: .7rem;
+  height: .7rem;
+  background: var(--foreground);
   vertical-align: -1px;
 }
 
