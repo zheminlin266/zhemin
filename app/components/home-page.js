@@ -58,7 +58,6 @@ export default function HomePage({ language }) {
         <header className="intro rise" style={{ "--delay": "40ms" }}>
           <h1 id="top" className="intro-name">Zhemin Lin</h1>
           <div className="intro-grid">
-            <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
             <div className="portrait">
               <Image
                 className="portrait-image"
@@ -66,22 +65,23 @@ export default function HomePage({ language }) {
                 alt={copy.photoLabel}
                 fill
                 priority
-                sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 210px"
+                sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 160px"
               />
             </div>
+            <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           </div>
         </header>
 
         <section className="section rise" style={{ "--delay": "120ms" }} aria-labelledby="projects-heading">
-          <h2 id="projects-heading">{copy.projectsHeading}</h2>
+          <h2 id="projects-heading"><span className="section-marker" aria-hidden="true" />{copy.projectsHeading}</h2>
           <LinkList items={projects} language={language} />
         </section>
         <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading">
-          <h2 id="articles-heading">{copy.articlesHeading}</h2>
+          <h2 id="articles-heading"><span className="section-marker" aria-hidden="true" />{copy.articlesHeading}</h2>
           <LinkList items={articles} language={language} />
         </section>
         <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading">
-          <h2 id="recommendations-heading">{copy.recommendationsHeading}</h2>
+          <h2 id="recommendations-heading"><span className="section-marker" aria-hidden="true" />{copy.recommendationsHeading}</h2>
           <LinkList items={recommendations} language={language} />
         </section>
 
