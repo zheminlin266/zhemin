@@ -38,11 +38,12 @@ html[data-theme="dark"] {
 
 body {
   margin: 0;
+  padding-inline: 2.5em;
   background: var(--background);
   color: var(--foreground);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 16px;
-  line-height: 1.625;
+  font-size: 1.1rem;
+  line-height: 1.62;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 180ms ease, color 180ms ease;
@@ -59,10 +60,10 @@ button {
 
 main {
   width: 100%;
-  max-width: 760px;
+  max-width: 36em;
   min-height: 100svh;
   margin-inline: auto;
-  padding: 28px 22px 56px;
+  padding: 28px 0 56px;
   box-sizing: border-box;
 }
 
@@ -88,7 +89,7 @@ h1 {
   z-index: 10;
   /* Center the 38px buttons on the first 28px row below main's 28px top padding. */
   top: 23px;
-  right: max(22px, calc(50% - 358px));
+  right: max(2.5em, calc(50% - 18em));
   display: flex;
   gap: 6px;
   border-radius: 8px;
@@ -348,7 +349,7 @@ h2 {
 }
 
 .article-main {
-  max-width: 760px;
+  max-width: 36em;
 }
 
 .article-copy {
@@ -727,14 +728,16 @@ h2 {
 }
 
 @media (max-width: 800px) {
+  body {
+    padding-inline: 2em;
+  }
+
   main {
-    width: auto;
-    margin: 0 20px;
-    padding: 28px 0 40px;
+    padding-bottom: 40px;
   }
 
   .controls {
-    right: 20px;
+    right: max(2em, calc(50% - 18em));
   }
 
   .intro-grid {
@@ -791,6 +794,16 @@ h2 {
   .footer,
   .footer-meta {
     gap: 12px;
+  }
+}
+
+@media (max-width: 360px) {
+  .intro-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .portrait {
+    justify-self: start;
   }
 }
 
