@@ -59,7 +59,7 @@ button {
 
 main {
   width: 100%;
-  max-width: 760px;
+  max-width: 678px;
   min-height: 100svh;
   margin-inline: auto;
   padding: 28px 22px 56px;
@@ -88,7 +88,7 @@ h1 {
   z-index: 10;
   /* Center the 38px buttons on the first 28px row below main's 28px top padding. */
   top: 23px;
-  right: max(22px, calc(50% - 358px));
+  right: max(22px, calc(50% - 317px));
   display: flex;
   gap: 6px;
   border-radius: 8px;
@@ -164,7 +164,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1.9fr) minmax(160px, 0.55fr);
   align-items: start;
-  gap: clamp(40px, 6vw, 88px);
+  gap: clamp(40px, 3.5vw, 52px);
 }
 
 .intro-name {
@@ -345,10 +345,6 @@ h2 {
 
 .state-link:hover {
   color: var(--foreground);
-}
-
-.article-main {
-  max-width: 760px;
 }
 
 .article-copy {
@@ -728,13 +724,14 @@ h2 {
 
 @media (max-width: 800px) {
   main {
-    width: auto;
-    margin: 0 20px;
+    width: calc(100% - 40px);
+    max-width: 634px;
+    margin-inline: auto;
     padding: 28px 0 40px;
   }
 
   .controls {
-    right: 20px;
+    right: max(20px, calc(50% - 317px));
   }
 
   .intro-grid {
@@ -760,10 +757,6 @@ h2 {
 
   .footer {
     padding-top: 112px;
-  }
-
-  .article-main {
-    max-width: none;
   }
 
   .article-header {
