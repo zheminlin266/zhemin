@@ -161,10 +161,7 @@ h1 {
 }
 
 .intro-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(160px, 0.55fr);
-  align-items: start;
-  gap: clamp(40px, 3.5vw, 52px);
+  display: flow-root;
 }
 
 .intro-name {
@@ -174,8 +171,6 @@ h1 {
 }
 
 .bio {
-  grid-column: 1;
-  grid-row: 1;
   max-width: 680px;
   color: var(--body);
 }
@@ -186,11 +181,10 @@ h1 {
 
 .portrait {
   position: relative;
-  grid-column: 2;
-  grid-row: 1;
-  width: min(100%, 210px);
+  float: right;
+  width: 160px;
   aspect-ratio: 4 / 5;
-  justify-self: end;
+  margin: 0 0 12px clamp(40px, 3.5vw, 52px);
   overflow: hidden;
   border-radius: 8px;
   background: var(--portrait-start);
@@ -748,13 +742,9 @@ h2 {
     right: max(20px, calc(50% - 317px));
   }
 
-  .intro-grid {
-    grid-template-columns: minmax(0, 1fr) 112px;
-    gap: 24px;
-  }
-
   .portrait {
     width: 112px;
+    margin-left: 24px;
   }
 
   .section {
@@ -783,15 +773,9 @@ h2 {
 }
 
 @media (max-width: 520px) {
-  .intro-grid {
-    display: flow-root;
-  }
-
   .portrait {
-    float: right;
     width: 96px;
-    aspect-ratio: 4 / 5;
-    margin: 0 0 12px 20px;
+    margin-left: 20px;
   }
 
   .footer,

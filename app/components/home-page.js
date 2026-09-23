@@ -65,7 +65,7 @@ export default function HomePage({ language }) {
                 alt={copy.photoLabel}
                 fill
                 priority
-                sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 210px"
+                sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 160px"
               />
             </div>
             <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
