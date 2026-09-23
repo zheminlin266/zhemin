@@ -1,8 +1,8 @@
 export const SITE_URL = "https://zhemin.ltd";
 
 export const languages = {
-  cn: { htmlLang: "zh-CN", prefix: "" },
-  en: { htmlLang: "en", prefix: "/en" },
+  cn: { htmlLang: "zh-CN", prefix: "/cn" },
+  en: { htmlLang: "en", prefix: "" },
 };
 
 export const homeCopy = {
@@ -214,7 +214,7 @@ export function createHomeMetadata(language) {
     description: copy.description,
     alternates: {
       canonical,
-      languages: { "zh-CN": "/", en: "/en", "x-default": "/" },
+      languages: { "zh-CN": "/cn", en: "/", "x-default": "/" },
     },
     openGraph: {
       type: "website",

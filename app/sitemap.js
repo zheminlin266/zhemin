@@ -5,10 +5,10 @@ function absolute(path) {
 }
 
 export default function sitemap() {
-  const homeAlternates = { languages: { "zh-CN": absolute("/"), en: absolute("/en") } };
+  const homeAlternates = { languages: { "zh-CN": absolute("/cn"), en: absolute("/") } };
   const pages = [
     { url: absolute("/"), changeFrequency: "monthly", priority: 1, alternates: homeAlternates },
-    { url: absolute("/en"), changeFrequency: "monthly", priority: 1, alternates: homeAlternates },
+    { url: absolute("/cn"), changeFrequency: "monthly", priority: 1, alternates: homeAlternates },
   ];
 
   for (const entry of entries) {
