@@ -238,6 +238,10 @@ h2 {
   color: var(--foreground);
 }
 
+.articles-section .project-title {
+  color: var(--body);
+}
+
 .project-meta {
   display: flex;
   align-items: baseline;
