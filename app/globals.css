@@ -235,10 +235,6 @@ h2 {
 }
 
 .project-title {
-  color: var(--foreground);
-}
-
-.articles-section .project-title {
   color: var(--body);
 }
 

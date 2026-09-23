@@ -76,7 +76,7 @@ export default function HomePage({ language }) {
           <h2 id="projects-heading"><span className="section-marker" aria-hidden="true" />{copy.projectsHeading}</h2>
           <LinkList items={projects} language={language} />
         </section>
-        <section className="section articles-section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading">
+        <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading">
           <h2 id="articles-heading"><span className="section-marker" aria-hidden="true" />{copy.articlesHeading}</h2>
           <LinkList items={articles} language={language} />
         </section>
