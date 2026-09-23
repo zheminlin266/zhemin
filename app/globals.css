@@ -235,7 +235,7 @@ h2 {
 }
 
 .project-title {
-  color: var(--foreground);
+  color: var(--body);
 }
 
 .project-meta {
