@@ -202,8 +202,8 @@ h1 {
 h2 {
   margin-bottom: 8px;
   color: var(--muted);
-  font-size: 14px;
-  font-weight: 500;
+  font-size: 16px;
+  font-weight: 400;
   line-height: 20px;
 }
 
