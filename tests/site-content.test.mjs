@@ -27,13 +27,15 @@ test("content registry has unique bilingual routes and complete page files", asy
 
   const paths = entries.flatMap((entry) => [entryPath(entry, "cn"), entryPath(entry, "en")]);
   assert.equal(new Set(paths).size, paths.length);
-  assert.equal(homePath("cn"), "/");
-  assert.equal(homePath("en"), "/en");
+  assert.equal(homePath("cn"), "/cn");
+  assert.equal(homePath("en"), "/");
+  assert.equal(entryPath(entries[0], "cn"), "/cn/articles/copper-supply-demand");
+  assert.equal(entryPath(entries[0], "en"), "/articles/copper-supply-demand");
 
   for (const entry of entries) {
     assert.equal(getEntry(entry.section, entry.slug), entry);
-    const chinesePagePath = `app/(cn)/${entry.section}/${entry.slug}/page.js`;
-    const englishPagePath = `app/(en)/en/${entry.section}/${entry.slug}/page.js`;
+    const chinesePagePath = `app/(cn)/cn/${entry.section}/${entry.slug}/page.js`;
+    const englishPagePath = `app/(en)/${entry.section}/${entry.slug}/page.js`;
     const [chinesePage, englishPage] = await Promise.all([
       readFile(chinesePagePath, "utf8"),
       readFile(englishPagePath, "utf8"),
