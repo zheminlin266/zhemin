@@ -38,12 +38,11 @@ html[data-theme="dark"] {
 
 body {
   margin: 0;
-  padding-inline: 2.5em;
   background: var(--background);
   color: var(--foreground);
   font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  font-size: 1.1rem;
-  line-height: 1.62;
+  font-size: 16px;
+  line-height: 1.625;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
   transition: background-color 180ms ease, color 180ms ease;
@@ -60,10 +59,10 @@ button {
 
 main {
   width: 100%;
-  max-width: 36em;
+  max-width: 678px;
   min-height: 100svh;
   margin-inline: auto;
-  padding: 28px 0 56px;
+  padding: 28px 22px 56px;
   box-sizing: border-box;
 }
 
@@ -89,7 +88,7 @@ h1 {
   z-index: 10;
   /* Center the 38px buttons on the first 28px row below main's 28px top padding. */
   top: 23px;
-  right: max(2.5em, calc(50% - 18em));
+  right: max(22px, calc(50% - 317px));
   display: flex;
   gap: 6px;
   border-radius: 8px;
@@ -346,10 +345,6 @@ h2 {
 
 .state-link:hover {
   color: var(--foreground);
-}
-
-.article-main {
-  max-width: 36em;
 }
 
 .article-copy {
@@ -728,16 +723,15 @@ h2 {
 }
 
 @media (max-width: 800px) {
-  body {
-    padding-inline: 2em;
-  }
-
   main {
-    padding-bottom: 40px;
+    width: calc(100% - 40px);
+    max-width: 634px;
+    margin-inline: auto;
+    padding: 28px 0 40px;
   }
 
   .controls {
-    right: max(2em, calc(50% - 18em));
+    right: max(20px, calc(50% - 317px));
   }
 
   .intro-grid {
@@ -765,10 +759,6 @@ h2 {
     padding-top: 112px;
   }
 
-  .article-main {
-    max-width: none;
-  }
-
   .article-header {
     margin-bottom: 40px;
   }
@@ -794,16 +784,6 @@ h2 {
   .footer,
   .footer-meta {
     gap: 12px;
-  }
-}
-
-@media (max-width: 360px) {
-  .intro-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .portrait {
-    justify-self: start;
   }
 }
 
