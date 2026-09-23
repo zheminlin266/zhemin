@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { ibmPlexSans } from "../fonts";
 import "../globals.css";
 
 export const metadata = {
@@ -13,7 +14,7 @@ export const metadata = {
 
 export default function EnglishRootLayout({ children }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={ibmPlexSans.variable} suppressHydrationWarning>
       <body>
         <Script id="theme-init" strategy="beforeInteractive">{`try { const saved = localStorage.getItem("theme"); const system = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"; document.documentElement.dataset.theme = saved === "dark" || saved === "light" ? saved : system; } catch {}`}</Script>
         {children}
