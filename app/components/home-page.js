@@ -58,7 +58,6 @@ export default function HomePage({ language }) {
         <header className="intro rise" style={{ "--delay": "40ms" }}>
           <h1 id="top" className="intro-name">Zhemin Lin</h1>
           <div className="intro-grid">
-            <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
             <div className="portrait">
               <Image
                 className="portrait-image"
@@ -69,6 +68,7 @@ export default function HomePage({ language }) {
                 sizes="(max-width: 520px) 96px, (max-width: 800px) 112px, 210px"
               />
             </div>
+            <div className="bio">{copy.intro.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</div>
           </div>
         </header>
 

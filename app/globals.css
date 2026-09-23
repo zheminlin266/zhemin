@@ -169,10 +169,13 @@ h1 {
 
 .intro-name {
   margin-bottom: 20px;
+  font-weight: 400;
   white-space: nowrap;
 }
 
 .bio {
+  grid-column: 1;
+  grid-row: 1;
   max-width: 680px;
   color: var(--body);
 }
@@ -183,6 +186,8 @@ h1 {
 
 .portrait {
   position: relative;
+  grid-column: 2;
+  grid-row: 1;
   width: min(100%, 210px);
   aspect-ratio: 4 / 5;
   justify-self: end;
@@ -770,15 +775,14 @@ h2 {
 
 @media (max-width: 520px) {
   .intro-grid {
-    grid-template-columns: minmax(0, 1fr) 96px;
-    align-items: start;
-    gap: 20px;
+    display: flow-root;
   }
 
   .portrait {
+    float: right;
     width: 96px;
     aspect-ratio: 4 / 5;
-    justify-self: end;
+    margin: 0 0 12px 20px;
   }
 
   .footer,
