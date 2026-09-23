@@ -164,7 +164,7 @@ h1 {
   display: grid;
   grid-template-columns: minmax(0, 1.9fr) minmax(160px, 0.55fr);
   align-items: start;
-  gap: clamp(40px, 6vw, 88px);
+  gap: clamp(40px, 3.5vw, 52px);
 }
 
 .intro-name {
