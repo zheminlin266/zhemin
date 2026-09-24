@@ -7,4 +7,5 @@ out/
 .workbuddy/
 .vercel/
 .obsidian/
+/Moments/
 .claude/settings.local.json

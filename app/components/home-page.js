@@ -1,7 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import EmailCopyButton from "./email-copy-button";
+import MomentsStrip from "./moments-strip";
 import SiteControls from "./site-controls";
+import { moments } from "../content/moments.mjs";
 import { entries, entryPath, homeCopy, homePath, projects } from "../content/registry.mjs";
 
 function LinkList({ items, language }) {
@@ -80,12 +82,16 @@ export default function HomePage({ language }) {
           <h2 id="articles-heading"><span className="section-marker" aria-hidden="true" />{copy.articlesHeading}</h2>
           <LinkList items={articles} language={language} />
         </section>
-        <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading">
+        <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="moments-heading">
+          <h2 id="moments-heading"><span className="section-marker" aria-hidden="true" />{copy.momentsHeading}</h2>
+          <MomentsStrip collections={moments} language={language} />
+        </section>
+        <section className="section rise" style={{ "--delay": "300ms" }} aria-labelledby="recommendations-heading">
           <h2 id="recommendations-heading"><span className="section-marker" aria-hidden="true" />{copy.recommendationsHeading}</h2>
           <LinkList items={recommendations} language={language} />
         </section>
 
-        <footer className="footer rise" style={{ "--delay": "300ms" }}>
+        <footer className="footer rise" style={{ "--delay": "360ms" }}>
           <a className="back-to-top" href="#top">{copy.backToTop}</a>
           <div className="footer-meta">
             <nav className="footer-social" aria-label={copy.socialLinks}>
