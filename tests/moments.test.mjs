@@ -20,7 +20,7 @@ function hasGpsPointer(exif) {
 
 test("Moments collections appear in the requested order", () => {
   assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "wanlvhu", "new-zealand", "australia", "tibet"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [47, 12, 3, 9, 8]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 12, 3, 9, 8]);
 });
 
 for (const collection of moments) {
