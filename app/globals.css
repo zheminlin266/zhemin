@@ -186,7 +186,6 @@ h1 {
   aspect-ratio: 4 / 5;
   margin: 0 0 12px clamp(40px, 3.5vw, 52px);
   overflow: hidden;
-  border-radius: 8px;
   background: var(--portrait-start);
 }
 
@@ -214,6 +213,119 @@ h2 {
   margin-right: .7rem;
   background: var(--foreground);
   vertical-align: -1px;
+}
+
+.moment-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  margin: 12px 0;
+}
+
+.moment-label {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 22px;
+  text-decoration: underline;
+  text-decoration-color: var(--border);
+  text-underline-offset: 4px;
+  cursor: pointer;
+}
+
+.moment-label[aria-pressed="true"],
+.moment-label:hover {
+  color: var(--foreground);
+  text-decoration-color: currentColor;
+}
+
+.moment-label:focus-visible,
+.moment-strip:focus-visible,
+.moment-photo-link:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.moment-strip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 3px 0 10px;
+  scrollbar-color: var(--border) transparent;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  cursor: grab;
+  user-select: none;
+}
+
+.moment-strip:active {
+  cursor: grabbing;
+}
+
+.moment-photo-link {
+  display: block;
+  flex: none;
+  line-height: 0;
+  cursor: pointer;
+}
+
+.moment-photo-link img {
+  display: block;
+  width: auto;
+  height: 200px;
+}
+
+main.moment-album {
+  max-width: none;
+}
+
+.moment-album-header,
+.moment-album > .article-back {
+  max-width: 634px;
+  margin-inline: auto;
+}
+
+.moment-album-header {
+  margin-bottom: 36px;
+}
+
+.moment-album > .article-back {
+  display: block;
+}
+
+.moment-figure {
+  margin: 0 0 48px;
+  scroll-margin-top: 28px;
+}
+
+.moment-image-frame {
+  overflow-x: auto;
+  scrollbar-color: var(--border) transparent;
+  scrollbar-width: thin;
+}
+
+.moment-image-frame:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.moment-image-frame img {
+  display: block;
+  width: auto;
+  max-width: none;
+  height: 80svh;
+  margin: 0 auto;
+}
+
+.moment-figure figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
 }
 
 .project-list {
@@ -274,7 +386,7 @@ h2 {
   flex-wrap: wrap;
   align-items: center;
   gap: 24px;
-  padding-top: 160px;
+  padding-top: 27px;
   color: var(--muted);
   font-size: 14px;
   line-height: 20px;
@@ -738,6 +850,31 @@ h2 {
     padding: 28px 0 40px;
   }
 
+  .moment-image-frame img {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    max-height: none;
+  }
+
+  .moment-rotate-mobile {
+    position: relative;
+    width: 100%;
+    aspect-ratio: var(--rotated-ratio);
+  }
+
+  .moment-image-frame .moment-rotate-mobile img {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: calc(100% * var(--photo-ratio));
+    max-width: none;
+    height: auto;
+    margin: 0;
+    transform: rotate(90deg);
+    transform-origin: top left;
+  }
+
   .controls {
     right: max(20px, calc(50% - 317px));
   }
@@ -757,10 +894,6 @@ h2 {
 
   .project-meta .arrow {
     display: none;
-  }
-
-  .footer {
-    padding-top: 112px;
   }
 
   .article-header {

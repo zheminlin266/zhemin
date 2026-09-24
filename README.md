@@ -36,10 +36,12 @@ The build runs the tests automatically.
 
 - Register every article or recommendation in `app/content/registry.mjs` with its route, date, bilingual title, and description.
 - Maintain both `content.cn.mdx` and `content.en.mdx` files for published content.
-- Provide lightweight page wrappers for the Chinese route and its `/en` counterpart.
+- Provide page wrappers for the English route and its `/cn` counterpart.
 - Store local images in `public/`, add accurate alt text, and register their intrinsic dimensions in `app/content/image-dimensions.mjs`.
 
-Chinese pages keep the existing URL structure. English pages use the same path below `/en`, for example `/articles/example` and `/en/articles/example`.
+For Moments, put original JPEGs in one of the ignored `Moments/Wuyishan/`, `Moments/Wanlvhu/`, `Moments/New Zealand/`, `Moments/Australia/`, or `Moments/Tibet/` folders, then run `node scripts/prepare-moments.mjs`. This generates EXIF-free WebP thumbnails and album images in `public/moments/` plus `app/content/moment-images.json`. Add bilingual descriptions for new photos in `app/content/moments.mjs` and run `npm test` before publishing. Do not commit the original photos.
+
+English pages use unprefixed routes, with Chinese pages under `/cn`, for example `/articles/example` and `/cn/articles/example`.
 
 ## Visual rules
 
