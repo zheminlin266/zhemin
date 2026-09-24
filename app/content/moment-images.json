@@ -638,56 +638,6 @@
         "thumbHeight": 600
       },
       {
-        "id": "p-a3175e701a07",
-        "name": "在澳洲坐热气球",
-        "thumb": "/moments/australia/p-a3175e701a07-thumb.webp",
-        "src": "/moments/australia/original/p-a3175e701a07.jpg",
-        "width": 3024,
-        "height": 4032,
-        "thumbWidth": 450,
-        "thumbHeight": 600
-      },
-      {
-        "id": "p-9023fa02736f",
-        "name": "在澳洲坐热气球2",
-        "thumb": "/moments/australia/p-9023fa02736f-thumb.webp",
-        "src": "/moments/australia/original/p-9023fa02736f.jpg",
-        "width": 4032,
-        "height": 3024,
-        "thumbWidth": 800,
-        "thumbHeight": 600
-      },
-      {
-        "id": "p-d14771f18d9a",
-        "name": "墨尔本旅游1",
-        "thumb": "/moments/australia/p-d14771f18d9a-thumb.webp",
-        "src": "/moments/australia/original/p-d14771f18d9a.jpg",
-        "width": 3264,
-        "height": 2448,
-        "thumbWidth": 800,
-        "thumbHeight": 600
-      },
-      {
-        "id": "p-cf577531703d",
-        "name": "墨尔本旅游3",
-        "thumb": "/moments/australia/p-cf577531703d-thumb.webp",
-        "src": "/moments/australia/original/p-cf577531703d.jpg",
-        "width": 3264,
-        "height": 2448,
-        "thumbWidth": 800,
-        "thumbHeight": 600
-      },
-      {
-        "id": "p-7581dff2743d",
-        "name": "墨尔本旅游4",
-        "thumb": "/moments/australia/p-7581dff2743d-thumb.webp",
-        "src": "/moments/australia/original/p-7581dff2743d.jpg",
-        "width": 2448,
-        "height": 3264,
-        "thumbWidth": 450,
-        "thumbHeight": 600
-      },
-      {
         "id": "p-3494d317f37e",
         "name": "毕业照2",
         "thumb": "/moments/australia/p-3494d317f37e-thumb.webp",
@@ -705,16 +655,6 @@
         "width": 3264,
         "height": 2448,
         "thumbWidth": 800,
-        "thumbHeight": 600
-      },
-      {
-        "id": "p-7d639dbd87e2",
-        "name": "过江坐的船",
-        "thumb": "/moments/australia/p-7d639dbd87e2-thumb.webp",
-        "src": "/moments/australia/original/p-7d639dbd87e2.jpg",
-        "width": 5962,
-        "height": 3194,
-        "thumbWidth": 1120,
         "thumbHeight": 600
       }
     ]
