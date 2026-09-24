@@ -15,7 +15,6 @@ const descriptions = {
     IMG_20260913_122742: ["群山间的田地和林木", "Fields and trees between the hills"],
     IMG_20260913_122849: ["蜿蜒山路上的骑行者", "A cyclist on a winding mountain road"],
     IMG_20260913_123102: ["树荫下的稻田与村舍", "Rice fields and houses beneath a leafy tree"],
-    IMG_20260913_141755: ["溪边的木屋与桥", "Wooden houses and a bridge beside a stream"],
     IMG_20260913_221315: ["庭院中的红色墙面与桌椅", "Tables and chairs beside a red courtyard wall"],
     IMG_20260913_233418: ["夜晚灯光下的木质廊亭", "A warmly lit wooden veranda at night"],
     IMG_20260914_104349: ["街边的店铺与行人", "A street-side shop and a passerby"],
