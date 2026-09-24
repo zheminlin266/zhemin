@@ -71,14 +71,8 @@ const descriptions = {
   },
   australia: {
     IMG_8346: ["棕榈树剪影与橙红色晚霞", "Palm trees silhouetted against an orange sunset"],
-    在澳洲坐热气球: ["草地上空的红色热气球", "A red hot-air balloon floating above fields"],
-    在澳洲坐热气球2: ["日出时俯瞰云雾笼罩的田野", "Sunrise above mist-covered fields"],
-    墨尔本旅游1: ["岩石海岸与蓝天白云", "A rocky coastline beneath a blue, cloudy sky"],
-    墨尔本旅游3: ["山坡下弯曲的碧蓝海湾", "A curving turquoise bay beneath a hillside"],
-    墨尔本旅游4: ["从海边山崖俯瞰海浪", "Waves viewed from a coastal cliff"],
     毕业照2: ["红色花树旁的校园建筑", "A campus building beside a tree with red flowers"],
     海岛1: ["夕阳下的海面与船只", "Boats on the sea at sunset"],
-    过江坐的船: ["蓝天白云下行驶的渡船", "A ferry crossing the water beneath a blue sky"],
   },
   tibet: {
     布达拉宫: ["蓝天下的布达拉宫", "The Potala Palace beneath a blue sky"],
