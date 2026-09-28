@@ -64,6 +64,7 @@ export const projects = [
   },
   {
     href: "https://metals.zhemin.ltd/",
+    year: "2026",
     title: { cn: "金银铜供需信息", en: "Gold, Silver & Copper Supply–Demand" },
   },
 ];
