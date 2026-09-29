@@ -1,48 +1,35 @@
 # zhemin.ltd
 
-This repository contains the source for [zhemin.ltd](https://www.zhemin.ltd/), a bilingual personal website by Zhemin Lin. The site brings together a concise biography, research projects, essays, and curated recommendations. It is designed as a quiet reading space for notes on technology, consumer businesses, investing, and questions worth revisiting.
+Source for [zhemin.ltd](https://www.zhemin.ltd/), Zhemin Lin's bilingual personal site. It features projects, essays, photo albums (Moments), and recommendations. English pages live at `/`; Chinese pages use `/cn`.
 
-## Stack
+Built with Next.js App Router, React, and MDX.
 
-- Next.js App Router
-- React
-- MDX for long-form content
-- Static generation with bilingual Chinese and English routes
+## Structure
 
-## Local development
+- `app/(en)/` and `app/(cn)/` — English and Chinese routes.
+- `app/content/registry.mjs` — homepage copy and article/recommendation index; bilingual MDX lives in `app/articles/` and `app/recommendations/`.
+- `app/content/moments.mjs` and `moment-images.json` — album labels, photo descriptions, and image catalog.
+- `app/components/` — shared site and gallery components.
+- `public/` — published images; `scripts/prepare-moments.mjs` prepares album images from ignored local originals.
+- `tests/` — Node.js tests.
 
-Install dependencies and start the development server:
+## Develop
 
 ```bash
 npm ci
 npm run dev
 ```
 
-Run the test suite:
+Run `npm test` to check changes or `npm run build` to check and build the site.
+
+## Content
+
+Register articles and recommendations in `app/content/registry.mjs`, with `content.en.mdx` and `content.cn.mdx` under their respective directories. Add image dimensions in `app/content/image-dimensions.mjs` and follow [Visual_Rules.md](./Visual_Rules.md) for UI changes.
+
+Moments has four albums: Wuyishan, Wanlvhu, AUS/NZ (澳新), and Tibet. Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Wuyishan/`, `Wanlvhu/`, `New Zealand/`, `Australia/`, or `Tibet/`, then run:
 
 ```bash
-npm test
+node scripts/prepare-moments.mjs
 ```
 
-Create a production build:
-
-```bash
-npm run build
-```
-
-The build runs the tests automatically.
-
-## Content conventions
-
-- Register every article or recommendation in `app/content/registry.mjs` with its route, date, bilingual title, and description.
-- Maintain both `content.cn.mdx` and `content.en.mdx` files for published content.
-- Provide page wrappers for the English route and its `/cn` counterpart.
-- Store local images in `public/`, add accurate alt text, and register their intrinsic dimensions in `app/content/image-dimensions.mjs`.
-
-For Moments, put original JPEGs in one of the ignored `Moments/Wuyishan/`, `Moments/Wanlvhu/`, `Moments/New Zealand/`, `Moments/Australia/`, or `Moments/Tibet/` folders, then run `node scripts/prepare-moments.mjs`. The New Zealand and Australia source folders form one AUS/NZ album, with New Zealand photos first. This generates EXIF-free WebP thumbnails, full-resolution JPEG album images with location metadata removed, and `app/content/moment-images.json` under `public/moments/`. Add bilingual descriptions for new photos in `app/content/moments.mjs` and run `npm test` before publishing. Do not commit the original photos.
-
-English pages use unprefixed routes, with Chinese pages under `/cn`, for example `/articles/example` and `/cn/articles/example`.
-
-## Visual rules
-
-New or adjusted interface work should follow [`Visual Rules.md`](./Visual_Rules.md), which documents the site's typography, layout, colors, components, interaction, motion, and accessibility conventions.
+New Zealand photos precede Australia photos in the combined `aus-nz` album. The script writes WebP thumbnails, full-resolution JPEGs without location metadata, and `app/content/moment-images.json`. Add bilingual alt text in `app/content/moments.mjs`; never commit the source photos in `Moments/`.
