@@ -19,8 +19,8 @@ function hasGpsPointer(exif) {
 }
 
 test("Moments collections appear in the requested order", async () => {
-  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "wanlvhu", "aus-nz", "tibet", "cloud"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 12, 6, 8, 11]);
+  assert.deepEqual(moments.map(({ slug }) => slug), ["cloud", "wuyishan", "wanlvhu", "aus-nz", "tibet"]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [11, 46, 12, 6, 8]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
   const combined = getMoment("aus-nz");

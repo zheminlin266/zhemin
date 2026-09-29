@@ -4,11 +4,11 @@ import path from "node:path";
 import sharp from "sharp";
 
 const collections = [
+  { folders: ["Cloud"], slug: "cloud" },
   { folders: ["Wuyishan"], slug: "wuyishan" },
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
   { folders: ["AUS-NZ"], slug: "aus-nz" },
   { folders: ["Tibet"], slug: "tibet" },
-  { folders: ["Cloud"], slug: "cloud" },
 ];
 const catalog = [];
 const previousCatalog = JSON.parse(await readFile("app/content/moment-images.json", "utf8"));
