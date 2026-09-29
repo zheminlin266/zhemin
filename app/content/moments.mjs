@@ -82,6 +82,19 @@ const descriptions = {
     香格里拉寺: ["蓝天下金色屋顶的寺庙建筑", "Golden-roofed temple buildings beneath a blue sky"],
     香格里拉寺和和尚: ["经幡下的寺庙广场", "A temple square beneath rows of prayer flags"],
   },
+  cloud: {
+    1: ["蓝天下的积云", "Towering white clouds against a blue sky"],
+    2: ["灰蓝天空中的白云", "White clouds in a gray-blue sky"],
+    3: ["城市楼宇上方的积云", "Cumulus clouds above city buildings"],
+    4: ["高楼旁的大片云层", "Large clouds beside apartment towers"],
+    5: ["蓝天中升起的白云", "White clouds rising into a blue sky"],
+    6: ["楼宇旁的明亮积云", "Bright cumulus clouds beside city towers"],
+    "6.5": ["路灯上方的云朵", "Clouds above a streetlamp"],
+    7: ["群山上方的云层", "Clouds above distant mountains"],
+    8: ["傍晚染上暖色的云朵", "Warm evening light on clouds"],
+    9: ["夕阳照亮的云与高楼", "Sunlit clouds behind a high-rise"],
+    10: ["暮色中的深蓝色云层", "Deep blue clouds at dusk"],
+  },
 };
 
 const labels = {
@@ -89,6 +102,7 @@ const labels = {
   wanlvhu: { cn: "万绿湖", en: "Wanlvhu" },
   "aus-nz": { cn: "澳新", en: "AUS/NZ" },
   tibet: { cn: "西藏", en: "Tibet" },
+  cloud: { cn: "云", en: "Cloud" },
 };
 
 export const moments = imageCatalog.map(({ slug, photos }) => ({

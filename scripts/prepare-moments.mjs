@@ -4,9 +4,10 @@ import path from "node:path";
 import sharp from "sharp";
 
 const collections = [
+  { folders: ["Cloud"], slug: "cloud" },
   { folders: ["Wuyishan"], slug: "wuyishan" },
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
-  { folders: ["New Zealand", "Australia"], slug: "aus-nz" },
+  { folders: ["AUS-NZ"], slug: "aus-nz" },
   { folders: ["Tibet"], slug: "tibet" },
 ];
 const catalog = [];
@@ -92,6 +93,18 @@ for (const { folders, slug } of collections) {
   for (const folder of folders) {
     const sourceDirectory = path.join("Moments", folder);
     const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
+    if (slug === "aus-nz") {
+      const existing = previousCatalog.find((collection) => collection.slug === slug)?.photos.map((photo) => photo.name) ?? [];
+      files.sort((a, b) => {
+        const aIndex = existing.indexOf(path.parse(a).name);
+        const bIndex = existing.indexOf(path.parse(b).name);
+        return (aIndex < 0 ? Infinity : aIndex) - (bIndex < 0 ? Infinity : bIndex) || a.localeCompare(b);
+      });
+    }
+    if (slug === "cloud") {
+      if (files.some((file) => !/^\d+(?:\.\d+)?\.jpe?g$/i.test(file))) throw new Error(`Expected numbered JPEGs in ${sourceDirectory}`);
+      files.sort((a, b) => Number(path.parse(a).name) - Number(path.parse(b).name));
+    }
     if (!files.length) throw new Error(`No photos in ${sourceDirectory}`);
     for (const file of files) {
       const name = path.parse(file).name;
