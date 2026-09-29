@@ -590,13 +590,13 @@
     ]
   },
   {
-    "slug": "new-zealand",
+    "slug": "aus-nz",
     "photos": [
       {
         "id": "p-d67d6bc137b2",
         "name": "新西兰1",
-        "thumb": "/moments/new-zealand/p-d67d6bc137b2-thumb.webp",
-        "src": "/moments/new-zealand/original/p-d67d6bc137b2.jpg",
+        "thumb": "/moments/aus-nz/p-d67d6bc137b2-thumb.webp",
+        "src": "/moments/aus-nz/original/p-d67d6bc137b2.jpg",
         "width": 8112,
         "height": 1927,
         "thumbWidth": 3031,
@@ -605,8 +605,8 @@
       {
         "id": "p-f491af8ff2f0",
         "name": "新西兰2",
-        "thumb": "/moments/new-zealand/p-f491af8ff2f0-thumb.webp",
-        "src": "/moments/new-zealand/original/p-f491af8ff2f0.jpg",
+        "thumb": "/moments/aus-nz/p-f491af8ff2f0-thumb.webp",
+        "src": "/moments/aus-nz/original/p-f491af8ff2f0.jpg",
         "width": 5226,
         "height": 1659,
         "thumbWidth": 2268,
@@ -615,23 +615,18 @@
       {
         "id": "p-439cde3ae73e",
         "name": "新西兰徒步",
-        "thumb": "/moments/new-zealand/p-439cde3ae73e-thumb.webp",
-        "src": "/moments/new-zealand/original/p-439cde3ae73e.jpg",
+        "thumb": "/moments/aus-nz/p-439cde3ae73e-thumb.webp",
+        "src": "/moments/aus-nz/original/p-439cde3ae73e.jpg",
         "width": 9108,
         "height": 3128,
         "thumbWidth": 2096,
         "thumbHeight": 720
-      }
-    ]
-  },
-  {
-    "slug": "australia",
-    "photos": [
+      },
       {
         "id": "p-3a9cea593c22",
         "name": "IMG_8346",
-        "thumb": "/moments/australia/p-3a9cea593c22-thumb.webp",
-        "src": "/moments/australia/original/p-3a9cea593c22.jpg",
+        "thumb": "/moments/aus-nz/p-3a9cea593c22-thumb.webp",
+        "src": "/moments/aus-nz/original/p-3a9cea593c22.jpg",
         "width": 5184,
         "height": 3456,
         "thumbWidth": 900,
@@ -640,8 +635,8 @@
       {
         "id": "p-3494d317f37e",
         "name": "毕业照2",
-        "thumb": "/moments/australia/p-3494d317f37e-thumb.webp",
-        "src": "/moments/australia/original/p-3494d317f37e.jpg",
+        "thumb": "/moments/aus-nz/p-3494d317f37e-thumb.webp",
+        "src": "/moments/aus-nz/original/p-3494d317f37e.jpg",
         "width": 3264,
         "height": 2448,
         "thumbWidth": 800,
@@ -650,8 +645,8 @@
       {
         "id": "p-1cfa103ffbfb",
         "name": "海岛1",
-        "thumb": "/moments/australia/p-1cfa103ffbfb-thumb.webp",
-        "src": "/moments/australia/original/p-1cfa103ffbfb.jpg",
+        "thumb": "/moments/aus-nz/p-1cfa103ffbfb-thumb.webp",
+        "src": "/moments/aus-nz/original/p-1cfa103ffbfb.jpg",
         "width": 3264,
         "height": 2448,
         "thumbWidth": 800,

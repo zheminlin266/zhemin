@@ -18,9 +18,16 @@ function hasGpsPointer(exif) {
   return false;
 }
 
-test("Moments collections appear in the requested order", () => {
-  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "wanlvhu", "new-zealand", "australia", "tibet"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 12, 3, 3, 8]);
+test("Moments collections appear in the requested order", async () => {
+  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "wanlvhu", "aus-nz", "tibet"]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 12, 6, 8]);
+  const combined = getMoment("aus-nz");
+  assert.deepEqual(combined.label, { cn: "澳新", en: "AUS/NZ" });
+  assert.deepEqual(combined.photos.map(({ name }) => name), ["新西兰1", "新西兰2", "新西兰徒步", "IMG_8346", "毕业照2", "海岛1"]);
+  for (const retired of ["new-zealand", "australia"]) {
+    assert.equal(getMoment(retired), undefined);
+    await assert.rejects(access(`public/moments/${retired}`), { code: "ENOENT" });
+  }
 });
 
 for (const collection of moments) {

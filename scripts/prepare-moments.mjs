@@ -1,14 +1,13 @@
 import { createHash } from "node:crypto";
-import { mkdir, readFile, readdir, unlink, writeFile } from "node:fs/promises";
+import { mkdir, readFile, readdir, rmdir, unlink, writeFile } from "node:fs/promises";
 import path from "node:path";
 import sharp from "sharp";
 
 const collections = [
-  { folder: "Wuyishan", slug: "wuyishan" },
-  { folder: "Wanlvhu", slug: "wanlvhu" },
-  { folder: "New Zealand", slug: "new-zealand" },
-  { folder: "Australia", slug: "australia" },
-  { folder: "Tibet", slug: "tibet" },
+  { folders: ["Wuyishan"], slug: "wuyishan" },
+  { folders: ["Wanlvhu"], slug: "wanlvhu" },
+  { folders: ["New Zealand", "Australia"], slug: "aus-nz" },
+  { folders: ["Tibet"], slug: "tibet" },
 ];
 const catalog = [];
 const previousCatalog = JSON.parse(await readFile("app/content/moment-images.json", "utf8"));
@@ -84,52 +83,55 @@ async function removeAsset(url) {
   });
 }
 
-for (const { folder, slug } of collections) {
-  const sourceDirectory = path.join("Moments", folder);
+for (const { folders, slug } of collections) {
   const destination = path.join("public", "moments", slug);
   const originalsDirectory = path.join(destination, "original");
   await Promise.all([mkdir(destination, { recursive: true }), mkdir(originalsDirectory, { recursive: true })]);
-  const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
-  if (!files.length) throw new Error(`No photos in ${sourceDirectory}`);
   const photos = [];
 
-  for (const file of files) {
-    const name = path.parse(file).name;
-    const id = slug === "wuyishan" || slug === "wanlvhu"
-      ? name // Keep existing photo URLs and anchors stable.
-      : `p-${createHash("sha256").update(file).digest("hex").slice(0, 12)}`;
-    const input = path.join(sourceDirectory, file);
-    const thumb = `${id}-thumb.webp`;
-    const original = `${id}.jpg`;
-    const metadata = await sharp(input).metadata();
-    const oriented = [5, 6, 7, 8].includes(metadata.orientation);
-    const width = oriented ? metadata.height : metadata.width;
-    const height = oriented ? metadata.width : metadata.height;
-    const thumbnailHeight = width / height >= 2.5 ? 720 : 600;
-    const thumbnail = await sharp(input)
-      .rotate()
-      .resize({ height: thumbnailHeight, withoutEnlargement: true })
-      .webp({ quality: 85 })
-      .toFile(path.join(destination, thumb));
+  for (const folder of folders) {
+    const sourceDirectory = path.join("Moments", folder);
+    const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
+    if (!files.length) throw new Error(`No photos in ${sourceDirectory}`);
+    for (const file of files) {
+      const name = path.parse(file).name;
+      const id = slug === "wuyishan" || slug === "wanlvhu"
+        ? name // Keep existing photo URLs and anchors stable.
+        : `p-${createHash("sha256").update(file).digest("hex").slice(0, 12)}`;
+      if (photos.some((photo) => photo.id === id)) throw new Error(`Duplicate photo ID in ${slug}: ${file}`);
+      const input = path.join(sourceDirectory, file);
+      const thumb = `${id}-thumb.webp`;
+      const original = `${id}.jpg`;
+      const metadata = await sharp(input).metadata();
+      const oriented = [5, 6, 7, 8].includes(metadata.orientation);
+      const width = oriented ? metadata.height : metadata.width;
+      const height = oriented ? metadata.width : metadata.height;
+      const thumbnailHeight = width / height >= 2.5 ? 720 : 600;
+      const thumbnail = await sharp(input)
+        .rotate()
+        .resize({ height: thumbnailHeight, withoutEnlargement: true })
+        .webp({ quality: 85 })
+        .toFile(path.join(destination, thumb));
 
-    const sourceBytes = await readFile(input);
-    const publishedOriginal = stripLocationMetadata(sourceBytes, metadata.orientation);
-    await writeFile(path.join(originalsDirectory, original), publishedOriginal);
+      const sourceBytes = await readFile(input);
+      const publishedOriginal = stripLocationMetadata(sourceBytes, metadata.orientation);
+      await writeFile(path.join(originalsDirectory, original), publishedOriginal);
 
-    photos.push({
-      id,
-      name,
-      thumb: `/moments/${slug}/${thumb}`,
-      src: `/moments/${slug}/original/${original}`,
-      width,
-      height,
-      thumbWidth: thumbnail.width,
-      thumbHeight: thumbnail.height,
-    });
+      photos.push({
+        id,
+        name,
+        thumb: `/moments/${slug}/${thumb}`,
+        src: `/moments/${slug}/original/${original}`,
+        width,
+        height,
+        thumbWidth: thumbnail.width,
+        thumbHeight: thumbnail.height,
+      });
+    }
   }
 
   catalog.push({ slug, photos });
-  console.log(`${folder}: ${photos.length} full-resolution photos prepared`);
+  console.log(`${folders.join(" / ")}: ${photos.length} full-resolution photos prepared`);
 }
 
 for (const current of catalog) {
@@ -148,6 +150,15 @@ for (const current of catalog) {
     if (!/^[-\w]+\.jpg$/i.test(file)) throw new Error(`Unexpected original asset: ${file}`);
     await unlink(path.join(originalsDirectory, file));
   }
+}
+
+for (const retired of previousCatalog.filter(({ slug }) => !catalog.some((current) => current.slug === slug))) {
+  for (const photo of retired.photos) {
+    await removeAsset(photo.thumb);
+    await removeAsset(photo.src);
+  }
+  await rmdir(path.join("public", "moments", retired.slug, "original"));
+  await rmdir(path.join("public", "moments", retired.slug));
 }
 
 await writeFile("app/content/moment-images.json", `${JSON.stringify(catalog, null, 2)}\n`);
