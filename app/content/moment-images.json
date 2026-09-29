@@ -738,5 +738,120 @@
         "thumbHeight": 600
       }
     ]
+  },
+  {
+    "slug": "cloud",
+    "photos": [
+      {
+        "id": "p-4c468b3b1699",
+        "name": "1",
+        "thumb": "/moments/cloud/p-4c468b3b1699-thumb.webp",
+        "src": "/moments/cloud/original/p-4c468b3b1699.jpg",
+        "width": 2944,
+        "height": 3924,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-88a5d4f503b2",
+        "name": "2",
+        "thumb": "/moments/cloud/p-88a5d4f503b2-thumb.webp",
+        "src": "/moments/cloud/original/p-88a5d4f503b2.jpg",
+        "width": 2524,
+        "height": 3364,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-da877ea96a7e",
+        "name": "3",
+        "thumb": "/moments/cloud/p-da877ea96a7e-thumb.webp",
+        "src": "/moments/cloud/original/p-da877ea96a7e.jpg",
+        "width": 1860,
+        "height": 2478,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-acf116f09554",
+        "name": "4",
+        "thumb": "/moments/cloud/p-acf116f09554-thumb.webp",
+        "src": "/moments/cloud/original/p-acf116f09554.jpg",
+        "width": 1420,
+        "height": 1892,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-3fd572d0b363",
+        "name": "5",
+        "thumb": "/moments/cloud/p-3fd572d0b363-thumb.webp",
+        "src": "/moments/cloud/original/p-3fd572d0b363.jpg",
+        "width": 2312,
+        "height": 3080,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-7ce86e777d06",
+        "name": "6",
+        "thumb": "/moments/cloud/p-7ce86e777d06-thumb.webp",
+        "src": "/moments/cloud/original/p-7ce86e777d06.jpg",
+        "width": 1702,
+        "height": 2268,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-5608bc49abd8",
+        "name": "6.5",
+        "thumb": "/moments/cloud/p-5608bc49abd8-thumb.webp",
+        "src": "/moments/cloud/original/p-5608bc49abd8.jpg",
+        "width": 2580,
+        "height": 3438,
+        "thumbWidth": 451,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-86a8c745a457",
+        "name": "7",
+        "thumb": "/moments/cloud/p-86a8c745a457-thumb.webp",
+        "src": "/moments/cloud/original/p-86a8c745a457.jpg",
+        "width": 1836,
+        "height": 2446,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-b481b705659e",
+        "name": "8",
+        "thumb": "/moments/cloud/p-b481b705659e-thumb.webp",
+        "src": "/moments/cloud/original/p-b481b705659e.jpg",
+        "width": 1568,
+        "height": 2088,
+        "thumbWidth": 451,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-b62c91d2ac6c",
+        "name": "9",
+        "thumb": "/moments/cloud/p-b62c91d2ac6c-thumb.webp",
+        "src": "/moments/cloud/original/p-b62c91d2ac6c.jpg",
+        "width": 1910,
+        "height": 2544,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      },
+      {
+        "id": "p-d918eb1ef055",
+        "name": "10",
+        "thumb": "/moments/cloud/p-d918eb1ef055-thumb.webp",
+        "src": "/moments/cloud/original/p-d918eb1ef055.jpg",
+        "width": 2370,
+        "height": 3160,
+        "thumbWidth": 450,
+        "thumbHeight": 600
+      }
+    ]
   }
 ]
