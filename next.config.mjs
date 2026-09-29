@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 const nextConfig = {
   pageExtensions: ["js", "jsx", "md", "mdx"],
   poweredByHeader: false,
+  images: { contentDispositionType: "inline" },
   async redirects() {
     return [
       { source: "/en", destination: "/", permanent: true },
