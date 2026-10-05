@@ -62,21 +62,25 @@ export default function CloudMusic({ language }) {
       }}
     >
       <audio ref={audioRef} src="/music/hayd-head-in-the-clouds.mp3" preload="auto" loop hidden />
-      <div ref={panelRef} className="cloud-music-panel" id={panelId} hidden={!expanded}>
-        <div className="cloud-music-track">
-          <p className="cloud-music-title">Head In The Clouds</p>
-          <p className="cloud-music-artist">Hayd<span role="status" aria-live="polite">{statusText ? ` · ${statusText}` : ""}</span></p>
+      <div ref={panelRef} className="cloud-music-panel" id={panelId} inert={!expanded} aria-hidden={!expanded}>
+        <div className="cloud-music-panel-clip">
+          <div className="cloud-music-panel-content">
+            <div className="cloud-music-track">
+              <p className="cloud-music-title">Head In The Clouds</p>
+              <p className="cloud-music-artist">Hayd<span role="status" aria-live="polite">{statusText ? ` · ${statusText}` : ""}</span></p>
+            </div>
+            <button
+              className="cloud-music-button"
+              type="button"
+              aria-label={active ? labels.pause : status === "error" ? labels.retry : labels.play}
+              onClick={() => playbackRef.current?.toggle()}
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                {active ? <path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" strokeWidth="3" /> : <path d="m8 4 12 8-12 8Z" fill="currentColor" />}
+              </svg>
+            </button>
+          </div>
         </div>
-        <button
-          className="cloud-music-button"
-          type="button"
-          aria-label={active ? labels.pause : status === "error" ? labels.retry : labels.play}
-          onClick={() => playbackRef.current?.toggle()}
-        >
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            {active ? <path d="M8 5v14M16 5v14" fill="none" stroke="currentColor" strokeWidth="3" /> : <path d="m8 4 12 8-12 8Z" fill="currentColor" />}
-          </svg>
-        </button>
       </div>
       <button
         ref={toggleRef}
