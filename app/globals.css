@@ -328,6 +328,99 @@ main.moment-album {
   text-align: center;
 }
 
+.cloud-music {
+  position: fixed;
+  z-index: 20;
+  right: max(16px, env(safe-area-inset-right));
+  bottom: max(16px, env(safe-area-inset-bottom));
+  display: flex;
+  max-width: calc(100vw - 32px);
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 8px;
+}
+
+.cloud-music[data-expanded="true"] {
+  border-color: var(--border);
+  background: var(--background);
+}
+
+.cloud-music-panel {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 0 6px 14px;
+}
+
+.cloud-music-panel[hidden] {
+  display: none;
+}
+
+.cloud-music-track {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cloud-music-title {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.cloud-music-artist {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.cloud-music-button {
+  display: grid;
+  flex: none;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--foreground);
+  cursor: pointer;
+}
+
+.cloud-music-button:hover {
+  background: var(--hover);
+}
+
+.cloud-music-button:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.cloud-music-toggle,
+.cloud-music-toggle:hover {
+  background: #fcfcfc;
+  color: #000;
+}
+
+.cloud-music-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+.cloud-music-note {
+  animation: cloud-music-spin 6s linear infinite;
+  animation-play-state: paused;
+  transform-origin: center;
+}
+
+.cloud-music[data-playing="true"] .cloud-music-note {
+  animation-play-state: running;
+}
+
+@keyframes cloud-music-spin {
+  to { transform: rotate(360deg); }
+}
+
 .project-list {
   margin: 0 -12px;
   padding: 0;
