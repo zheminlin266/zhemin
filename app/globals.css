@@ -337,7 +337,8 @@ main.moment-album {
   max-width: calc(100vw - 32px);
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: 999px;
+  transition: border-color 300ms ease, background-color 300ms ease;
 }
 
 .cloud-music[data-expanded="true"] {
@@ -346,15 +347,39 @@ main.moment-album {
 }
 
 .cloud-music-panel {
-  display: flex;
-  min-width: 0;
-  align-items: center;
-  gap: 12px;
-  padding: 6px 0 6px 14px;
+  display: grid;
+  grid-template-columns: 0fr;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    grid-template-columns 300ms ease,
+    grid-template-rows 300ms ease,
+    opacity 200ms ease,
+    visibility 0s 300ms;
 }
 
-.cloud-music-panel[hidden] {
-  display: none;
+.cloud-music[data-expanded="true"] .cloud-music-panel {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0s;
+}
+
+.cloud-music-panel-clip {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.cloud-music-panel-content {
+  display: flex;
+  width: max-content;
+  max-width: calc(100vw - max(16px, env(safe-area-inset-left)) - max(16px, env(safe-area-inset-right)) - 46px);
+  align-items: center;
+  gap: 12px;
+  padding: 6px 4px 6px 14px;
 }
 
 .cloud-music-track {
@@ -381,10 +406,11 @@ main.moment-album {
   place-items: center;
   padding: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: 50%;
   background: transparent;
   color: var(--foreground);
   cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .cloud-music-button:hover {
