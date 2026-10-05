@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import SiteControls from "./site-controls";
+import CloudMusic from "./cloud-music";
 import { homeCopy, homePath } from "../content/registry.mjs";
 import { momentPath } from "../content/moments.mjs";
 
@@ -50,6 +51,7 @@ export default function MomentAlbum({ collection, language }) {
         })}
         <Link className="article-back" href={homePath(language)}>← {language === "cn" ? "返回首页" : "Back home"}</Link>
       </main>
+      {collection.slug === "cloud" && <CloudMusic language={language} />}
     </div>
   );
 }
