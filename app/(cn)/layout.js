@@ -1,15 +1,14 @@
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ibmPlexSans } from "../fonts";
+import { SITE_URL } from "../content/registry.mjs";
 import "../globals.css";
 
 export const metadata = {
-  metadataBase: new URL("https://zhemin.ltd"),
+  metadataBase: new URL(SITE_URL),
   title: "Zhemin Lin",
   description: "Zhemin Lin 的个人网站：基本面研究、项目、文章与推荐。",
   applicationName: "Zhemin",
-  authors: [{ name: "Zhemin Lin", url: "https://zhemin.ltd" }],
-  creator: "Zhemin Lin",
 };
 
 export default function ChineseRootLayout({ children }) {

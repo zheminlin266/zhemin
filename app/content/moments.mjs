@@ -1,5 +1,5 @@
 import imageCatalog from "./moment-images.json" with { type: "json" };
-import { languages } from "./registry.mjs";
+import { languages, SITE_URL } from "./registry.mjs";
 
 const descriptions = {
   wuyishan: {
@@ -129,13 +129,29 @@ export function createMomentMetadata(collection, language) {
   const canonical = momentPath(collection.slug, language);
   const title = `${collection.label[language]} — Zhemin Lin`;
   const description = language === "cn" ? `${collection.label.cn}摄影集。` : `Photographs from ${collection.label.en}.`;
+  const cover = collection.photos[0];
+  const images = [{
+    url: new URL(cover.thumb, SITE_URL).toString(),
+    width: cover.thumbWidth,
+    height: cover.thumbHeight,
+    alt: cover.alt[language],
+  }];
   return {
     title,
     description,
     alternates: {
       canonical,
-      languages: { "zh-CN": momentPath(collection.slug, "cn"), en: momentPath(collection.slug, "en") },
+      languages: {
+        "zh-CN": momentPath(collection.slug, "cn"),
+        en: momentPath(collection.slug, "en"),
+        "x-default": momentPath(collection.slug, "en"),
+      },
     },
-    openGraph: { type: "website", url: canonical, title, description, siteName: "Zhemin" },
+    openGraph: {
+      type: "website", url: canonical, title, description, siteName: "Zhemin", images,
+      locale: language === "cn" ? "zh_CN" : "en_US",
+      alternateLocale: language === "cn" ? ["en_US"] : ["zh_CN"],
+    },
+    twitter: { card: "summary", title, description, images },
   };
 }
