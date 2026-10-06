@@ -4,7 +4,7 @@ import EmailCopyButton from "./email-copy-button";
 import MomentsStrip from "./moments-strip";
 import SiteControls from "./site-controls";
 import { moments } from "../content/moments.mjs";
-import { entries, entryPath, homeCopy, homePath, projects } from "../content/registry.mjs";
+import { createHomeJsonLd, entries, entryPath, homeCopy, homePath, projects } from "../content/registry.mjs";
 
 function LinkList({ items, language }) {
   return (
@@ -55,6 +55,10 @@ export default function HomePage({ language }) {
   return (
     // Wrap the page so client navigation scrolls to this y=0 box, not to the offset controls.
     <div className="home-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(createHomeJsonLd(language)).replaceAll("<", "\\u003c") }}
+      />
       <SiteControls language={language} alternateHref={homePath(language === "cn" ? "en" : "cn")} labels={languageLabels} />
       <main lang={language === "en" ? "en" : "zh-CN"}>
         <header className="intro rise" style={{ "--delay": "40ms" }}>

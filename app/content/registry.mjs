@@ -1,4 +1,6 @@
-export const SITE_URL = "https://zhemin.ltd";
+import { imageDimensions } from "./image-dimensions.mjs";
+
+export const SITE_URL = "https://www.zhemin.ltd";
 
 export const languages = {
   cn: { htmlLang: "zh-CN", prefix: "/cn" },
@@ -73,6 +75,10 @@ export const entries = [
   {
     section: "articles",
     slug: "copper-supply-demand",
+    shareImage: {
+      src: "/articles/copper-supply-demand/sp-copper-supply.png",
+      alt: { cn: "标普报告中供给的分类", en: "S&P report: copper supply by source" },
+    },
     date: "2026-03",
     hasToc: true,
     title: { cn: "铜供需研究小结", en: "Copper Supply and Demand: Research Notes" },
@@ -85,6 +91,10 @@ export const entries = [
   {
     section: "articles",
     slug: "pendle-market-observation",
+    shareImage: {
+      src: "/articles/pendle-market-observation/pendle-pt-market-size.png",
+      alt: { cn: "Pendle PT 市场类别占比", en: "Pendle PT market share by major category" },
+    },
     date: "2026-01",
     hasToc: true,
     title: { cn: "Pendle 市场观察：巧妇难为无米之炊", en: "Pendle Market Outlook: You Can’t Cook Without Ingredients" },
@@ -97,6 +107,10 @@ export const entries = [
   {
     section: "articles",
     slug: "pendle-industry",
+    shareImage: {
+      src: "/articles/pendle-industry/cleared-swaps.png",
+      alt: { cn: "各清算所未偿还名义价值", en: "Outstanding notional value by clearing house" },
+    },
     date: "2025-05",
     originalDate: "2024-H1",
     originalNote: { cn: "原文写于 2024 年上半年", en: "Originally written in H1 2024" },
@@ -159,6 +173,10 @@ export const entries = [
   {
     section: "recommendations",
     slug: "concentration-diversification",
+    shareImage: {
+      src: "/recommendations/concentration-diversification/portfolio-standard-deviation.png",
+      alt: { cn: "股票数量与标准差分析", en: "Number of stocks and portfolio standard deviation" },
+    },
     date: "2023-10",
     hasToc: false,
     title: { cn: "集中、分散与不上市也值得持有", en: "Concentration, Diversification, and Companies Worth Owning" },
@@ -184,6 +202,10 @@ export const entries = [
   {
     section: "recommendations",
     slug: "mental-models",
+    shareImage: {
+      src: "/recommendations/mental-models/general-electric-ad.webp",
+      alt: { cn: "通用电气关于小型化成本的广告", en: "General Electric advertisement on the cost of miniaturization" },
+    },
     date: "2019-04",
     hasToc: false,
     title: { cn: "王川：为什么思维模型是最重要的财富（一）", en: "Wang Chuan: Why Mental Models Are the Most Important Wealth (I)" },
@@ -212,8 +234,17 @@ export function getEntry(section, slug) {
 export function createHomeMetadata(language) {
   const copy = homeCopy[language];
   const canonical = homePath(language);
+  const title = language === "cn"
+    ? "Zhemin Lin｜个人网站、文章与项目"
+    : "Zhemin Lin | Personal Website, Writing & Projects";
+  const images = [{
+    url: new URL("/zhemin-profile.webp", SITE_URL).toString(),
+    width: 420,
+    height: 525,
+    alt: copy.photoLabel,
+  }];
   return {
-    title: copy.title,
+    title,
     description: copy.description,
     alternates: {
       canonical,
@@ -222,13 +253,40 @@ export function createHomeMetadata(language) {
     openGraph: {
       type: "website",
       url: canonical,
-      title: copy.title,
+      title,
       description: copy.description,
       siteName: "Zhemin",
       locale: language === "cn" ? "zh_CN" : "en_US",
       alternateLocale: language === "cn" ? ["en_US"] : ["zh_CN"],
+      images,
     },
-    twitter: { card: "summary", title: copy.title, description: copy.description },
+    twitter: { card: "summary", title, description: copy.description, images },
+  };
+}
+
+export function createHomeJsonLd(language) {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: "Zhemin",
+        alternateName: "Zhemin Lin",
+        description: homeCopy[language].description,
+        inLanguage: ["en", "zh-CN"],
+        about: { "@id": `${SITE_URL}/#person` },
+      },
+      {
+        "@type": "Person",
+        "@id": `${SITE_URL}/#person`,
+        name: "Zhemin Lin",
+        url: `${SITE_URL}/`,
+        image: new URL("/zhemin-profile.webp", SITE_URL).toString(),
+        sameAs: ["https://x.com/zheminlin", "https://github.com/zheminlin266"],
+      },
+    ],
   };
 }
 
@@ -236,6 +294,14 @@ export function createEntryMetadata(entry, language) {
   const canonical = entryPath(entry, language);
   const title = `${entry.title[language]} — Zhemin Lin`;
   const description = entry.description[language];
+  const src = entry.shareImage?.src ?? "/icon.png";
+  const [width, height] = entry.shareImage ? imageDimensions[src] : [128, 128];
+  const images = [{
+    url: new URL(src, SITE_URL).toString(),
+    width,
+    height,
+    alt: entry.shareImage?.alt[language] ?? (language === "cn" ? "Zhemin 网站图标" : "Zhemin site icon"),
+  }];
   return {
     title,
     description,
@@ -244,7 +310,7 @@ export function createEntryMetadata(entry, language) {
       languages: {
         "zh-CN": entryPath(entry, "cn"),
         en: entryPath(entry, "en"),
-        "x-default": entryPath(entry, "cn"),
+        "x-default": entryPath(entry, "en"),
       },
     },
     openGraph: {
@@ -255,8 +321,21 @@ export function createEntryMetadata(entry, language) {
       siteName: "Zhemin",
       locale: language === "cn" ? "zh_CN" : "en_US",
       alternateLocale: language === "cn" ? ["en_US"] : ["zh_CN"],
-      publishedTime: `${entry.date}-01`,
+      images,
     },
-    twitter: { card: "summary", title, description },
+    twitter: { card: "summary", title, description, images },
+  };
+}
+
+export function createEntryJsonLd(entry, language) {
+  // A site's owner and month-only display dates do not establish authorship or exact publication dates.
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: entry.title[language],
+    description: entry.description[language],
+    inLanguage: languages[language].htmlLang,
+    mainEntityOfPage: new URL(entryPath(entry, language), SITE_URL).toString(),
+    ...(entry.shareImage && { image: new URL(entry.shareImage.src, SITE_URL).toString() }),
   };
 }

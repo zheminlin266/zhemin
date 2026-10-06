@@ -1,7 +1,7 @@
 import Link from "next/link";
 import ArticleToc from "./article-toc";
 import SiteControls from "./site-controls";
-import { entryPath, homePath, SITE_URL } from "../content/registry.mjs";
+import { createEntryJsonLd, entryPath, homePath } from "../content/registry.mjs";
 
 const ui = {
   cn: {
@@ -29,16 +29,7 @@ const ui = {
 export default function ArticlePage({ language, entry, children }) {
   const copy = ui[language];
   const otherLanguage = language === "cn" ? "en" : "cn";
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: entry.title[language],
-    description: entry.description[language],
-    datePublished: `${entry.date}-01`,
-    inLanguage: language === "cn" ? "zh-CN" : "en",
-    mainEntityOfPage: new URL(entryPath(entry, language), SITE_URL).toString(),
-    author: { "@type": "Person", name: "Zhemin Lin", url: SITE_URL },
-  };
+  const jsonLd = createEntryJsonLd(entry, language);
 
   return (
     // Wrap the page so client navigation scrolls to this y=0 box, not to the offset controls.
