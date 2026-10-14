@@ -3,7 +3,8 @@
 import { useEffect, useId, useRef, useState } from "react";
 import { createMusicPlayback } from "../music-playback.mjs";
 
-export default function CloudMusic({ language }) {
+export default function MomentMusic({ language, track }) {
+  const { src, title, artist } = track;
   const [expanded, setExpanded] = useState(false);
   const [status, setStatus] = useState("loading");
   const audioRef = useRef(null);
@@ -61,13 +62,13 @@ export default function CloudMusic({ language }) {
         if (event.key === "Escape") closePanel();
       }}
     >
-      <audio ref={audioRef} src="/music/hayd-head-in-the-clouds.mp3" preload="auto" loop hidden />
+      <audio ref={audioRef} src={src} preload="auto" loop hidden />
       <div ref={panelRef} className="cloud-music-panel" id={panelId} inert={!expanded} aria-hidden={!expanded}>
         <div className="cloud-music-panel-clip">
           <div className="cloud-music-panel-content">
             <div className="cloud-music-track">
-              <p className="cloud-music-title">Head In The Clouds</p>
-              <p className="cloud-music-artist">Hayd<span role="status" aria-live="polite">{statusText ? ` · ${statusText}` : ""}</span></p>
+              <p className="cloud-music-title">{title}</p>
+              <p className="cloud-music-artist">{artist}<span role="status" aria-live="polite">{statusText ? ` · ${statusText}` : ""}</span></p>
             </div>
             <button
               className="cloud-music-button"
@@ -86,10 +87,10 @@ export default function CloudMusic({ language }) {
         ref={toggleRef}
         className="cloud-music-button cloud-music-toggle"
         type="button"
-        aria-label={`${labels.details}: Head In The Clouds — Hayd`}
+        aria-label={`${labels.details}: ${title} — ${artist}`}
         aria-expanded={expanded}
         aria-controls={panelId}
-        title={statusText || "Head In The Clouds — Hayd"}
+        title={statusText || `${title} — ${artist}`}
         onClick={() => {
           if (expanded) closePanel();
           else {

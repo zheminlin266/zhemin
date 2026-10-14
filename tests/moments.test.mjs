@@ -32,6 +32,18 @@ test("Moments collections appear in the requested order", async () => {
   }
 });
 
+test("Wuyishan and Cloud have distinct background music with available audio files", async () => {
+  const musicalCollections = moments.filter(({ music }) => music);
+  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud"]);
+  assert.equal(getMoment("wuyishan").music.title, "Aqua");
+  assert.equal(getMoment("cloud").music.title, "Head In The Clouds");
+  assert.equal(new Set(musicalCollections.map(({ music }) => music.src)).size, 2);
+  for (const { music } of musicalCollections) {
+    assert.ok(music.artist);
+    await access(`public${music.src}`);
+  }
+});
+
 for (const collection of moments) {
   test(`${collection.label.en} has accessible thumbnails and full-resolution, GPS-free album photos`, async () => {
     assert.equal(getMoment(collection.slug), collection);

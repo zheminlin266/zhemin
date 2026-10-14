@@ -105,9 +105,15 @@ const labels = {
   cloud: { cn: "云", en: "Cloud" },
 };
 
+const music = {
+  wuyishan: { src: "/music/ryuichi-sakamoto-aqua.mp3", title: "Aqua", artist: "Ryuichi Sakamoto" },
+  cloud: { src: "/music/hayd-head-in-the-clouds.mp3", title: "Head In The Clouds", artist: "Hayd" },
+};
+
 export const moments = imageCatalog.map(({ slug, photos }) => ({
   slug,
   label: labels[slug],
+  music: music[slug],
   photos: photos.map((photo) => ({
     ...photo,
     alt: {
