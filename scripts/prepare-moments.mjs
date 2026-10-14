@@ -93,7 +93,7 @@ for (const { folders, slug } of collections) {
   for (const folder of folders) {
     const sourceDirectory = path.join("Moments", folder);
     const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
-    if (slug === "aus-nz") {
+    if (slug === "aus-nz" || slug === "wuyishan") {
       const existing = previousCatalog.find((collection) => collection.slug === slug)?.photos.map((photo) => photo.name) ?? [];
       files.sort((a, b) => {
         const aIndex = existing.indexOf(path.parse(a).name);
