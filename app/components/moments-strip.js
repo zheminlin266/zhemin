@@ -38,15 +38,27 @@ export default function MomentsStrip({ collections, language }) {
     <>
       <div className="moment-labels" role="group" aria-label={language === "cn" ? "选择相册" : "Choose an album"}>
         {collections.map((collection) => (
-          <button
+          <a
             key={collection.slug}
-            type="button"
+            href={momentPath(collection.slug, language)}
             className="moment-label"
-            aria-pressed={selected === collection.slug}
-            onClick={() => { setSelected(collection.slug); strip.current?.scrollTo({ left: 0 }); drag.current = null; }}
+            aria-current={selected === collection.slug ? "true" : undefined}
+            onClick={(event) => {
+              if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+              event.preventDefault();
+              setSelected(collection.slug);
+              strip.current?.scrollTo({ left: 0 });
+              drag.current = null;
+            }}
+            onKeyDown={(event) => {
+              if (event.key === " ") {
+                event.preventDefault();
+                event.currentTarget.click();
+              }
+            }}
           >
             {collection.label[language]}
-          </button>
+          </a>
         ))}
       </div>
       <div

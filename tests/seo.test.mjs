@@ -4,7 +4,7 @@ import test from "node:test";
 import sharp from "sharp";
 import robots from "../app/robots.js";
 import sitemap from "../app/sitemap.js";
-import { createMomentMetadata, moments } from "../app/content/moments.mjs";
+import { createMomentJsonLd, createMomentMetadata, momentPath, moments } from "../app/content/moments.mjs";
 import {
   createEntryJsonLd,
   createEntryMetadata,
@@ -114,4 +114,44 @@ test("both homepages identify the same website and person without assigning arti
     people.push(person);
   }
   assert.deepEqual(people[0], people[1]);
+});
+
+test("gallery structured data describes only the displayed photos in their displayed order and language", () => {
+  const originalCollections = JSON.stringify(moments);
+  const identifiers = new Set();
+  for (const collection of moments) {
+    for (const language of ["en", "cn"]) {
+      const gallery = createMomentJsonLd(collection, language);
+      const canonical = new URL(momentPath(collection.slug, language), SITE_URL).href;
+      assert.equal(gallery["@type"], "ImageGallery");
+      assert.equal(gallery.url, canonical);
+      assert.equal(gallery.name, collection.label[language]);
+      assert.equal(gallery.inLanguage, language === "cn" ? "zh-CN" : "en");
+      assert.equal(gallery.isPartOf["@id"], `${SITE_URL}/#website`);
+      assert.equal(gallery.hasPart.length, collection.photos.length);
+      for (const [index, image] of gallery.hasPart.entries()) {
+        const photo = collection.photos[index];
+        const id = new URL(image["@id"]);
+        assert.equal(id.origin + id.pathname, canonical);
+        assert.equal(decodeURIComponent(id.hash.slice(1)), photo.id);
+        assert.equal(identifiers.has(image["@id"]), false);
+        identifiers.add(image["@id"]);
+        assert.equal(image["@type"], "ImageObject");
+        assert.equal(image.name, photo.alt[language]);
+        assert.equal(image.contentUrl, new URL(photo.src, SITE_URL).href);
+        assert.equal(image.thumbnailUrl, new URL(photo.thumb, SITE_URL).href);
+        for (const dimension of ["width", "height"]) {
+          assert.equal(image[dimension]["@type"], "QuantitativeValue");
+          assert.equal(image[dimension].value, photo[dimension]);
+          assert.equal(image[dimension].unitText, "px");
+        }
+      }
+      for (const node of [gallery, ...gallery.hasPart]) {
+        for (const key of ["author", "creator", "datePublished", "dateModified", "license", "copyrightHolder"]) {
+          assert.equal(Object.hasOwn(node, key), false, `unexpected inferred ${key}`);
+        }
+      }
+    }
+  }
+  assert.equal(JSON.stringify(moments), originalCollections);
 });
