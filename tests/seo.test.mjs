@@ -100,7 +100,7 @@ test("article metadata does not infer authors or dates, or describe the icon as 
   assert.equal(JSON.stringify(entries), originalEntries, "metadata generation must not mutate content records");
 });
 
-test("both homepages connect the brand to the same person and their visible translated introduction", () => {
+test("both homepages connect the brand to the same person and their visible translated biography", () => {
   const people = [];
   const titles = {
     cn: "Zhemin Lin｜基本面研究、文章与项目",
@@ -118,8 +118,7 @@ test("both homepages connect the brand to the same person and their visible tran
     assert.equal(person.url, `${SITE_URL}/`);
     assert.equal(person.name, "Zhemin Lin");
     assert.equal(person.alternateName, "Zhemin");
-    assert.equal(person.description, homeCopy[language].intro[0]);
-    assert.ok(person.description.includes(person.name));
+    assert.equal(person.description, homeCopy[language].intro[2]);
     assert.equal(metadata.title, titles[language]);
     assert.equal(metadata.openGraph.title, metadata.title);
     assert.equal(metadata.twitter.title, metadata.title);
