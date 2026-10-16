@@ -10,15 +10,15 @@ export const languages = {
 export const homeCopy = {
   cn: {
     title: "Zhemin Lin",
-    description: "Zhemin Lin 的个人网站：基本面研究、项目、文章与推荐。",
+    description: "Zhemin Lin（Zhemin）的个人网站，分享基本面研究、文章与项目，涉及科技、消费和金属供需。",
     switchLabel: "切换为英文",
     themeDark: "切换为深色主题",
     themeLight: "切换为浅色主题",
     settings: "页面设置",
     intro: [
+      "我是 Zhemin Lin，也使用 Zhemin 这个名字。这里分享基本面研究、文章与个人项目。曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业；此前任华润万象商业数据分析师。",
       "在这个因科技而剧变的时代，战术勤奋弥补不了战略懒惰。",
       "真正重要的是找好视角，提好问题，给对权重，承担选择。",
-      "曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业。前华润万象商业数据分析师。",
       "欢迎纠错和理性探讨。",
     ],
     momentsHeading: "光景",
@@ -34,15 +34,15 @@ export const homeCopy = {
   },
   en: {
     title: "Zhemin Lin",
-    description: "Zhemin Lin’s personal website for fundamental research, projects, articles, and recommendations.",
+    description: "Zhemin Lin (Zhemin) shares fundamental research, articles, and projects covering technology, consumer businesses, and metals supply and demand.",
     switchLabel: "Switch to Chinese",
     themeDark: "Switch to dark theme",
     themeLight: "Switch to light theme",
     settings: "Page settings",
     intro: [
+      "I’m Zhemin Lin, also known as Zhemin. Here I share fundamental research, articles, and personal projects. I previously researched technology and consumer businesses at a private equity fund and family office, and worked as a commercial data analyst at CR Mixc Lifestyle.",
       "In an age of rapid technological change, tactical execution can’t make up for poor strategic thinking.",
       "The real work is finding the right angle, asking the right questions, setting the right priorities, and owning the decisions that follow.",
-      "I conducted fundamental research at a private equity fund and family office, focusing on technology and consumer sectors. Previously, a commercial data analyst at CR Mixc Lifestyle.",
       "Corrections and thoughtful discussion are always welcome.",
     ],
     momentsHeading: "Moments",
@@ -235,8 +235,8 @@ export function createHomeMetadata(language) {
   const copy = homeCopy[language];
   const canonical = homePath(language);
   const title = language === "cn"
-    ? "Zhemin Lin｜个人网站、文章与项目"
-    : "Zhemin Lin | Personal Website, Writing & Projects";
+    ? "Zhemin Lin｜基本面研究、文章与项目"
+    : "Zhemin Lin | Fundamental Research, Writing & Projects";
   const images = [{
     url: new URL("/zhemin-profile.webp", SITE_URL).toString(),
     width: 420,
@@ -282,6 +282,8 @@ export function createHomeJsonLd(language) {
         "@type": "Person",
         "@id": `${SITE_URL}/#person`,
         name: "Zhemin Lin",
+        alternateName: "Zhemin",
+        description: homeCopy[language].intro[0],
         url: `${SITE_URL}/`,
         image: new URL("/zhemin-profile.webp", SITE_URL).toString(),
         sameAs: ["https://x.com/zheminlin", "https://github.com/zheminlin266"],
