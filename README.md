@@ -41,3 +41,5 @@ Existing New Zealand photos precede Australia photos in the combined `aus-nz` al
 For entries with images, set `shareImage` to the first body image with the same bilingual alt text. Metadata uses its registered dimensions; entries without body images use the site icon for sharing, without identifying it as an article image. Homepages use the existing portrait and albums use their first photo's thumbnail. `tests/seo.test.mjs` checks language links, image assets, attribution, and date handling as part of `npm test`.
 
 After an approved deployment, submit `https://www.zhemin.ltd/sitemap.xml` in the main site's Google Search Console and Bing Webmaster Tools properties. Check the selected canonical and crawl status, then review brand searches and available AI-search reports after 7, 28, and 56 days. Dashboard verification, submission, and production deployment require separate authorization.
+
+See [brand-search.md](docs/brand-search.md) for the `zhemin` / `zhemin lin` baseline, weekly Search Console filters, and the 4-, 8-, and 12-week review dates.

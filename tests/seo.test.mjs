@@ -11,6 +11,7 @@ import {
   createHomeJsonLd,
   createHomeMetadata,
   entries,
+  homeCopy,
   SITE_URL,
 } from "../app/content/registry.mjs";
 
@@ -99,19 +100,37 @@ test("article metadata does not infer authors or dates, or describe the icon as 
   assert.equal(JSON.stringify(entries), originalEntries, "metadata generation must not mutate content records");
 });
 
-test("both homepages identify the same website and person without assigning article authorship", () => {
+test("both homepages connect the brand to the same person and their visible translated introduction", () => {
   const people = [];
+  const titles = {
+    cn: "Zhemin Lin｜基本面研究、文章与项目",
+    en: "Zhemin Lin | Fundamental Research, Writing & Projects",
+  };
   for (const language of ["cn", "en"]) {
+    const metadata = createHomeMetadata(language);
     const graph = createHomeJsonLd(language)["@graph"];
     assert.equal(graph.length, 2);
     const website = graph.find((node) => node["@type"] === "WebSite");
     const person = graph.find((node) => node["@type"] === "Person");
     assert.equal(website.url, `${SITE_URL}/`);
+    assert.equal(website.name, "Zhemin");
+    assert.equal(website.alternateName, "Zhemin Lin");
     assert.equal(person.url, `${SITE_URL}/`);
+    assert.equal(person.name, "Zhemin Lin");
+    assert.equal(person.alternateName, "Zhemin");
+    assert.equal(person.description, homeCopy[language].intro[0]);
+    assert.ok(person.description.includes(person.name));
+    assert.equal(metadata.title, titles[language]);
+    assert.equal(metadata.openGraph.title, metadata.title);
+    assert.equal(metadata.twitter.title, metadata.title);
+    for (const description of [website.description, metadata.description, metadata.openGraph.description, metadata.twitter.description]) {
+      assert.equal(description, homeCopy[language].description);
+    }
     assert.equal(website.about["@id"], person["@id"]);
     assert.deepEqual(person.sameAs, ["https://x.com/zheminlin", "https://github.com/zheminlin266"]);
     assert.ok(graph.every((node) => !Object.hasOwn(node, "author")));
-    people.push(person);
+    const { description, ...identity } = person;
+    people.push(identity);
   }
   assert.deepEqual(people[0], people[1]);
 });
