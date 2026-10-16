@@ -3,7 +3,7 @@ import Link from "next/link";
 import SiteControls from "./site-controls";
 import MomentMusic from "./moment-music";
 import { homeCopy, homePath } from "../content/registry.mjs";
-import { momentPath } from "../content/moments.mjs";
+import { createMomentJsonLd, momentPath } from "../content/moments.mjs";
 
 export default function MomentAlbum({ collection, language }) {
   const copy = homeCopy[language];
@@ -11,6 +11,10 @@ export default function MomentAlbum({ collection, language }) {
 
   return (
     <div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(createMomentJsonLd(collection, language)).replaceAll("<", "\\u003c") }}
+      />
       <SiteControls
         language={language}
         alternateHref={momentPath(collection.slug, otherLanguage)}

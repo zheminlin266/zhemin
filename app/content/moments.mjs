@@ -161,3 +161,28 @@ export function createMomentMetadata(collection, language) {
     twitter: { card: "summary", title, description, images },
   };
 }
+
+export function createMomentJsonLd(collection, language) {
+  const metadata = createMomentMetadata(collection, language);
+  const canonical = new URL(metadata.alternates.canonical, SITE_URL).toString();
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ImageGallery",
+    "@id": `${canonical}#gallery`,
+    url: canonical,
+    name: collection.label[language],
+    description: metadata.description,
+    inLanguage: languages[language].htmlLang,
+    isPartOf: { "@id": `${SITE_URL}/#website` },
+    hasPart: collection.photos.map((photo) => ({
+      "@type": "ImageObject",
+      "@id": `${canonical}#${photo.id}`,
+      name: photo.alt[language],
+      contentUrl: new URL(photo.src, SITE_URL).toString(),
+      thumbnailUrl: new URL(photo.thumb, SITE_URL).toString(),
+      width: { "@type": "QuantitativeValue", value: photo.width, unitText: "px" },
+      height: { "@type": "QuantitativeValue", value: photo.height, unitText: "px" },
+    })),
+  };
+}

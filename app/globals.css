@@ -235,7 +235,7 @@ h2 {
   cursor: pointer;
 }
 
-.moment-label[aria-pressed="true"],
+.moment-label[aria-current="true"],
 .moment-label:hover {
   color: var(--foreground);
   text-decoration-color: currentColor;

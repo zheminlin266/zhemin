@@ -1,5 +1,41 @@
 # 技术 SEO / GEO 验证记录
 
+## 2026-10-16 生产部署与索引请求
+
+已通过现有 Vercel `zhemin` 项目部署并切换正式域名：[生产站点](https://www.zhemin.ltd/)、[本次发布](https://vercel.com/zheminlin266s-projects/zhemin/HSuAKUtQgX5mvX6hBT5irZFVaxtu)。部署 ID 为 `dpl_HSuAKUtQgX5mvX6hBT5irZFVaxtu`，状态 READY。
+
+- 本地与 Vercel 云端均通过 22 项测试和生产构建。上线后 32 个规范页面全部返回 200；canonical、双语链接、页面锚点、相册结构化数据与铜文章首图加载优先级核验通过。
+- 正式站点在不执行 JavaScript 时，32 个 sitemap 页面均可从首页链接到达；中英文相册入口、正常切换及新标签页打开通过。
+- 中文首页、中文铜文章、中文西藏相册的桌面 / 移动端共 6 组上线前后检查通过。文字和布局区域截图无差异，图片来源、说明和尺寸一致；照片重采样差异单独记录，抽查原图资源与前一部署逐字节一致。
+- 已分别为 `https://www.zhemin.ltd/cn`、`https://www.zhemin.ltd/cn/articles/copper-supply-demand`、`https://www.zhemin.ltd/cn/moments/tibet` 请求编入索引，三个请求均获 Search Console 受理。请求后的索引快照仍为“Google 无法识别此网址”，需要等待后续抓取与索引处理。
+- sitemap 后台复核保持成功、32 个网页；裸域三个目标页面均跳转到对应 www 地址。
+
+本次通过 CLI 从本地已验证源码快照发布，基于 Git `8f976ab7d0a7f5984be5eb5637eb0e9a27757d40` 加本次 SEO / GEO 改动；相同的运行代码与测试已纳入本次 SEO / GEO Git 提交。Vercel 已关联 GitHub `zheminlin266/zhemin`，自动 Git 部署启用，生产分支为 `main`，没有忽略构建命令。将本次 PR 合并到 `main` 后，后续 Git 生产部署会包含这些优化。以下为上线前的历史验证记录。
+
+## 2026-10-16 更新
+
+本次 SEO / GEO 改动已完成本地验证，尚未部署。Search Console 验证与 sitemap 提交已在正式网域属性实际完成。
+
+- 首页五个相册标签改为具有真实 `href` 的链接；普通点击继续切换照片条，Enter / 空格操作保留，Ctrl 点击及鼠标中键可打开相册。无 JavaScript 时可直接进入相册。相同样式对应 `aria-current`，没有新增可见内容。
+- 十个双语相册页面在初始 HTML 输出 ImageGallery / ImageObject，描述实际展示的 83 张原始照片（双语共 166 个对象），包含本地化名称、原图、缩略图与以像素计的实际尺寸。未推断摄影者、版权、许可或拍摄日期。
+- Pendle 市场观察的四个“前文”链接改为对应语言的本站文章，其中章节链接指向已经存在的标题锚点。正文文字与图片不变。
+- 铜供需文章首张图使用 eager / high 优先级，后续图片仍延迟加载；图片资源、尺寸和样式保持一致。
+
+| 验证 | 结果 |
+|---|---|
+| `npm run build` | 22 项测试通过；生产构建生成 39 个静态页面/元数据端点 |
+| 32 页 Googlebot 请求及初始 HTML | 全部 200；canonical、双语关系、唯一标题/描述、JSON-LD、页面锚点通过 |
+| 不执行 JavaScript 的首页链接图 | 32 / 32 个 sitemap 页面可从中英文首页到达 |
+| 相册浏览行为 | 中英文无 JavaScript 导航、普通点击、Enter、空格、Ctrl 点击及中键通过 |
+| 13 组视觉回归 | 中英文首页桌面/移动端深浅主题、铜供需文章桌面/移动端、中文相册通过；文字、布局区域为 0 差异。图片资源未改动；Chrome 对相同照片的少量重采样差异单独限制在每通道 16、差异像素平均每通道 1 以内 |
+| 收录基线 | 32 页逐一检查：7 已收录、24 Google 未知、1 历史替代 canonical；16 个中文页均未收录 |
+| 主站近 28 天搜索效果 | 2026-09-16 至 2026-10-13：0 点击、62 曝光、CTR 0%、平均排名 8.0；使用主站 URL 正则排除项目子域 |
+| Search Console sitemap | `sc-domain:zhemin.ltd` 已验证；主站 sitemap 2026-10-16 提交并成功读取，发现 32 网页、0 视频；原 Metals sitemap 保持成功、106 页 |
+
+“发现 32 页”不等于全部已收录。本地改动尚未上线，不能据此报告线上收录、排名、Core Web Vitals 或 AI 引用已经改善。[Google 的 AI 搜索说明](https://developers.google.com/search/docs/appearance/ai-features)仍以可收录、内部链接及与正文一致的结构化信息为基础；本次没有将相册标记描述为专门的 AI 排名机制或富媒体结果保证。
+
+以下为 2026-10-06 的历史验证记录。
+
 验证日期：2026-10-06。以下记录针对本地生产构建；不代表生产站点已部署或重新收录。
 
 ## 实现

@@ -3,6 +3,7 @@ import { imageDimensions } from "./app/content/image-dimensions.mjs";
 
 function MarkdownImage({ alt = "", title, src, width, height, ...props }) {
   const dimensions = imageDimensions[src];
+  const aboveFold = src === "/articles/copper-supply-demand/sp-copper-supply.png";
   const className = src === "/articles/pendle-industry/cleared-swaps.png"
     ? "article-image article-image-compact"
     : "article-image";
@@ -16,7 +17,8 @@ function MarkdownImage({ alt = "", title, src, width, height, ...props }) {
       className={className}
       alt={alt}
       title={title}
-      loading="lazy"
+      loading={aboveFold ? "eager" : "lazy"}
+      fetchPriority={aboveFold ? "high" : undefined}
       decoding="async"
     />
   );
