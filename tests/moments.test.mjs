@@ -32,12 +32,14 @@ test("Moments collections appear in the requested order", async () => {
   }
 });
 
-test("Wuyishan and Cloud have distinct background music with available audio files", async () => {
+test("Wuyishan, Cloud, and Wanlvhu have distinct background music with available audio files", async () => {
   const musicalCollections = moments.filter(({ music }) => music);
-  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud"]);
+  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu"]);
   assert.equal(getMoment("wuyishan").music.title, "Aqua");
   assert.equal(getMoment("cloud").music.title, "Head In The Clouds");
-  assert.equal(new Set(musicalCollections.map(({ music }) => music.src)).size, 2);
+  assert.equal(getMoment("wanlvhu").music.title, "saman");
+  assert.equal(getMoment("wanlvhu").music.artist, "Ólafur Arnalds");
+  assert.equal(new Set(musicalCollections.map(({ music }) => music.src)).size, 3);
   for (const { music } of musicalCollections) {
     assert.ok(music.artist);
     await access(`public${music.src}`);

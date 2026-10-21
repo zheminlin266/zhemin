@@ -108,6 +108,7 @@ const labels = {
 const music = {
   wuyishan: { src: "/music/ryuichi-sakamoto-aqua.mp3", title: "Aqua", artist: "Ryuichi Sakamoto" },
   cloud: { src: "/music/hayd-head-in-the-clouds.mp3", title: "Head In The Clouds", artist: "Hayd" },
+  wanlvhu: { src: "/music/olafur-arnalds-saman.mp3", title: "saman", artist: "Ólafur Arnalds" },
 };
 
 export const moments = imageCatalog.map(({ slug, photos }) => ({
