@@ -43,7 +43,7 @@ function LinkList({ items, language }) {
 
 export default function HomePage({ language }) {
   const copy = homeCopy[language];
-  const articles = entries.filter((entry) => entry.section === "articles");
+  const articles = entries.filter((entry) => entry.section === "articles" && entry.slug !== "pendle-market-observation");
   const recommendations = entries.filter((entry) => entry.section === "recommendations");
   const languageLabels = {
     settings: copy.settings,
