@@ -86,13 +86,13 @@ export default function HomePage({ language }) {
           <h2 id="articles-heading"><span className="section-marker" aria-hidden="true" />{copy.articlesHeading}</h2>
           <LinkList items={articles} language={language} />
         </section>
-        <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="moments-heading">
-          <h2 id="moments-heading"><span className="section-marker" aria-hidden="true" />{copy.momentsHeading}</h2>
-          <MomentsStrip collections={moments} language={language} />
-        </section>
-        <section className="section rise" style={{ "--delay": "300ms" }} aria-labelledby="recommendations-heading">
+        <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading">
           <h2 id="recommendations-heading"><span className="section-marker" aria-hidden="true" />{copy.recommendationsHeading}</h2>
           <LinkList items={recommendations} language={language} />
+        </section>
+        <section className="section rise" style={{ "--delay": "300ms" }} aria-labelledby="moments-heading">
+          <h2 id="moments-heading"><span className="section-marker" aria-hidden="true" />{copy.momentsHeading}</h2>
+          <MomentsStrip collections={moments} language={language} />
         </section>
 
         <footer className="footer rise" style={{ "--delay": "360ms" }}>
