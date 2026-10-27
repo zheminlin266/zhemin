@@ -6,6 +6,7 @@ out/
 .playwright-mcp/
 .workbuddy/
 .vercel/
+.seo-cache/
 .obsidian/
 /Moments/
 .claude/settings.local.json

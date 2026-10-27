@@ -1,0 +1,21 @@
+{
+  "version": "2.0",
+  "statement": [
+    {
+      "effect": "allow",
+      "action": [
+        "dnspod:DescribeDomain",
+        "dnspod:DescribeDomainList",
+        "dnspod:DescribeRecord",
+        "dnspod:DescribeRecordList",
+        "dnspod:DescribeRecordLineList",
+        "dnspod:DescribeRecordType",
+        "dnspod:CreateRecord",
+        "dnspod:ModifyRecord"
+      ],
+      "resource": [
+        "qcs::dnspod::uin/100017546155:domain/99629455"
+      ]
+    }
+  ]
+}

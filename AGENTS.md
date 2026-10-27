@@ -75,6 +75,14 @@ Prefer existing components, native HTML/CSS, and polished defaults before custom
 Render and inspect changed visual work when a suitable validation tool is available. Check layout, clipping, spacing, missing content, responsive behavior, and visual consistency before finishing.
 
 
+## Cloud development
+
+For Codex Cloud setup, repository entry points, validation commands, network requirements, and local-only assets, read [docs/codex-handoff.md](docs/codex-handoff.md). Run project commands from the repository root. Keep this file named `AGENTS.md` so it is discovered on case-sensitive filesystems.
+
+## Cloud access
+
+For Vercel deployments or DNSPod changes, read [docs/codex-cloud-access.md](docs/codex-cloud-access.md) for the configured account, project, CLI profile, credential handling, and verification steps. Keep this repository linked to its existing Vercel project. Cloud connection setup does not itself authorize deployment or DNS changes; follow the scope and approval rules above.
+
 <!-- BEGIN:nextjs-agent-rules -->
 
 # This is NOT the Next.js you know
