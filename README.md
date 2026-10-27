@@ -15,12 +15,16 @@ Built with Next.js App Router, React, and MDX.
 
 ## Develop
 
+Use Node.js 22.x, matching CI, and npm 11.9.0, as specified in `package.json`.
+
 ```bash
 npm ci
 npm run dev
 ```
 
 Run `npm test` to check changes or `npm run build` to check and build the site.
+
+See [codex-handoff.md](docs/codex-handoff.md) for Codex Cloud setup, network access, local-only assets, and acceptance checks. Hosting and DNS targets are documented in [codex-cloud-access.md](docs/codex-cloud-access.md).
 
 ## Content
 
