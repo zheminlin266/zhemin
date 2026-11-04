@@ -244,7 +244,7 @@ export function createHomeMetadata(language) {
     alt: copy.photoLabel,
   }];
   return {
-    title,
+    title: "Zhemin Lin",
     description: copy.description,
     alternates: {
       canonical,
