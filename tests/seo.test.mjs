@@ -119,9 +119,9 @@ test("both homepages connect the brand to the same person and their visible tran
     assert.equal(person.name, "Zhemin Lin");
     assert.equal(person.alternateName, "Zhemin");
     assert.equal(person.description, homeCopy[language].intro[2]);
-    assert.equal(metadata.title, titles[language]);
-    assert.equal(metadata.openGraph.title, metadata.title);
-    assert.equal(metadata.twitter.title, metadata.title);
+    assert.equal(metadata.title, "Zhemin Lin");
+    assert.equal(metadata.openGraph.title, titles[language]);
+    assert.equal(metadata.twitter.title, titles[language]);
     for (const description of [website.description, metadata.description, metadata.openGraph.description, metadata.twitter.description]) {
       assert.equal(description, homeCopy[language].description);
     }
