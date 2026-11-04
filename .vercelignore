@@ -1,0 +1,16 @@
+.git/
+node_modules/
+.next/
+out/
+.vercel/
+.playwright-mcp/
+.workbuddy/
+.seo-cache/
+.obsidian/
+.claude/
+.opencode/
+.agents
+/Moments/
+.env*
+*.log
+.DS_Store

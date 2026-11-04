@@ -99,6 +99,15 @@ export default function HomePage({ language }) {
           <a className="back-to-top" href="#top">{copy.backToTop}</a>
           <div className="footer-meta">
             <nav className="footer-social" aria-label={copy.socialLinks}>
+              <a
+                id="xiaohongshu"
+                href="https://www.xiaohongshu.com/user/profile/5c15276d0000000006036713"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={language === "cn" ? "小红书主页（在新标签页打开）" : "rednote profile (opens in a new tab)"}
+              >
+                {language === "cn" ? "小红书" : "rednote"}
+              </a>
               <a href="https://x.com/zheminlin" target="_blank" rel="noreferrer">X</a>
               <a href="https://github.com/zheminlin266" target="_blank" rel="noreferrer">GitHub</a>
             </nav>
