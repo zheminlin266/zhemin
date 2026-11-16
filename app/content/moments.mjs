@@ -77,9 +77,6 @@ const descriptions = {
     新西兰1: ["湖边的长椅与远处的雪山", "A bench beside a lake with snow-capped mountains beyond"],
     新西兰2: ["蓝绿色的湖水与远处的雪山", "Blue-green lake water beneath distant snowy mountains"],
     新西兰徒步: ["积雪覆盖的山间徒步小径", "A snow-covered hiking trail through the mountains"],
-    IMG_8346: ["棕榈树剪影与橙红色晚霞", "Palm trees silhouetted against an orange sunset"],
-    毕业照2: ["红色花树旁的校园建筑", "A campus building beside a tree with red flowers"],
-    海岛1: ["夕阳下的海面与船只", "Boats on the sea at sunset"],
   },
   tibet: {
     布达拉宫: ["蓝天下的布达拉宫", "The Potala Palace beneath a blue sky"],
@@ -109,7 +106,7 @@ const descriptions = {
 const labels = {
   wuyishan: { cn: "武夷山", en: "Wuyishan" },
   wanlvhu: { cn: "万绿湖", en: "Wanlvhu" },
-  "aus-nz": { cn: "澳新", en: "AUS/NZ" },
+  "aus-nz": { cn: "新西兰", en: "New Zealand" },
   tibet: { cn: "西藏", en: "Tibet" },
   cloud: { cn: "云", en: "Cloud" },
   yala: { cn: "雅拉", en: "Yala" },

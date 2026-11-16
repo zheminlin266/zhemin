@@ -20,12 +20,16 @@ function hasGpsPointer(exif) {
 
 test("Moments collections appear in the requested order", async () => {
   assert.deepEqual(moments.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 6, 8]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 3, 8]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
-  const combined = getMoment("aus-nz");
-  assert.deepEqual(combined.label, { cn: "澳新", en: "AUS/NZ" });
-  assert.deepEqual(combined.photos.map(({ name }) => name), ["新西兰1", "新西兰2", "新西兰徒步", "IMG_8346", "毕业照2", "海岛1"]);
+  const newZealand = getMoment("aus-nz");
+  assert.deepEqual(newZealand.label, { cn: "新西兰", en: "New Zealand" });
+  assert.deepEqual(newZealand.photos.map(({ name }) => name), ["新西兰1", "新西兰2", "新西兰徒步"]);
+  for (const id of ["p-3a9cea593c22", "p-3494d317f37e", "p-1cfa103ffbfb"]) {
+    await assert.rejects(access(`public/moments/aus-nz/${id}-thumb.webp`), { code: "ENOENT" });
+    await assert.rejects(access(`public/moments/aus-nz/original/${id}.jpg`), { code: "ENOENT" });
+  }
   for (const retired of ["new-zealand", "australia"]) {
     assert.equal(getMoment(retired), undefined);
     await assert.rejects(access(`public/moments/${retired}`), { code: "ENOENT" });
