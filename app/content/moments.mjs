@@ -83,8 +83,6 @@ const descriptions = {
     梅里雪山: ["云层环绕的雪山", "Snow-capped mountains surrounded by clouds"],
     梅里雪山2: ["白云间露出的雪峰", "Snowy peaks rising through white clouds"],
     梅里雪山3: ["蓝天下连绵的雪峰", "A range of snowy peaks beneath a blue sky"],
-    纳木错2: ["湖水、远山与蓝天", "A lake and distant mountains beneath a blue sky"],
-    "香格里拉 背包十年青旅楼顶": ["木质露台与山景", "A wooden terrace overlooking the mountains"],
     香格里拉寺: ["蓝天下金色屋顶的寺庙建筑", "Golden-roofed temple buildings beneath a blue sky"],
     香格里拉寺和和尚: ["经幡下的寺庙广场", "A temple square beneath rows of prayer flags"],
   },

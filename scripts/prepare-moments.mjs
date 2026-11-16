@@ -9,7 +9,7 @@ const collections = [
   { folders: ["Cloud"], slug: "cloud" },
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
   { folders: ["AUS-NZ"], slug: "new-zealand", exclude: ["IMG_8346", "毕业照2", "海岛1"] },
-  { folders: ["Tibet"], slug: "tibet" },
+  { folders: ["Tibet"], slug: "tibet", exclude: ["纳木错2", "香格里拉 背包十年青旅楼顶"] },
 ];
 const catalog = [];
 const previousCatalog = JSON.parse(await readFile("app/content/moment-images.json", "utf8"));
