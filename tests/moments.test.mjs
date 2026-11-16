@@ -19,8 +19,8 @@ function hasGpsPointer(exif) {
 }
 
 test("Moments collections appear in the requested order", async () => {
-  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet", "yala"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 11, 12, 6, 8, 7]);
+  assert.deepEqual(moments.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet"]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 6, 8]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
   const combined = getMoment("aus-nz");
@@ -34,7 +34,7 @@ test("Moments collections appear in the requested order", async () => {
 
 test("Wuyishan, Cloud, Wanlvhu, and Yala have distinct background music with available audio files", async () => {
   const musicalCollections = moments.filter(({ music }) => music);
-  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu", "yala"]);
+  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu"]);
   assert.equal(getMoment("wuyishan").music.title, "Aqua");
   assert.equal(getMoment("cloud").music.title, "Head In The Clouds");
   assert.equal(getMoment("wanlvhu").music.title, "saman");

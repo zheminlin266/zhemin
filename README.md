@@ -30,7 +30,7 @@ See [codex-handoff.md](docs/codex-handoff.md) for Codex Cloud setup, network acc
 
 Register articles and recommendations in `app/content/registry.mjs`, with `content.en.mdx` and `content.cn.mdx` under their respective directories. Add image dimensions in `app/content/image-dimensions.mjs` and follow [Visual_Rules.md](./Visual_Rules.md) for UI changes.
 
-Moments has six albums: Wuyishan, Cloud (云), Wanlvhu, AUS/NZ (澳新), Tibet, and Yala (雅拉). Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Wuyishan/`, `Cloud/`, `Wanlvhu/`, `AUS-NZ/`, `Tibet/`, or `Yala/`, then run:
+Moments has six albums in homepage order: Yala (雅拉), Wuyishan, Cloud (云), Wanlvhu, AUS/NZ (澳新), and Tibet. The first album is selected by default. Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Yala/`, `Wuyishan/`, `Cloud/`, `Wanlvhu/`, `AUS-NZ/`, or `Tibet/`, then run:
 
 ```bash
 node scripts/prepare-moments.mjs
