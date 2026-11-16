@@ -780,13 +780,13 @@
     ]
   },
   {
-    "slug": "aus-nz",
+    "slug": "new-zealand",
     "photos": [
       {
         "id": "p-d67d6bc137b2",
         "name": "新西兰1",
-        "thumb": "/moments/aus-nz/p-d67d6bc137b2-thumb.webp",
-        "src": "/moments/aus-nz/original/p-d67d6bc137b2.jpg",
+        "thumb": "/moments/new-zealand/p-d67d6bc137b2-thumb.webp",
+        "src": "/moments/new-zealand/original/p-d67d6bc137b2.jpg",
         "width": 8112,
         "height": 1927,
         "thumbWidth": 3031,
@@ -795,8 +795,8 @@
       {
         "id": "p-f491af8ff2f0",
         "name": "新西兰2",
-        "thumb": "/moments/aus-nz/p-f491af8ff2f0-thumb.webp",
-        "src": "/moments/aus-nz/original/p-f491af8ff2f0.jpg",
+        "thumb": "/moments/new-zealand/p-f491af8ff2f0-thumb.webp",
+        "src": "/moments/new-zealand/original/p-f491af8ff2f0.jpg",
         "width": 5226,
         "height": 1659,
         "thumbWidth": 2268,
@@ -805,8 +805,8 @@
       {
         "id": "p-439cde3ae73e",
         "name": "新西兰徒步",
-        "thumb": "/moments/aus-nz/p-439cde3ae73e-thumb.webp",
-        "src": "/moments/aus-nz/original/p-439cde3ae73e.jpg",
+        "thumb": "/moments/new-zealand/p-439cde3ae73e-thumb.webp",
+        "src": "/moments/new-zealand/original/p-439cde3ae73e.jpg",
         "width": 9108,
         "height": 3128,
         "thumbWidth": 2096,
