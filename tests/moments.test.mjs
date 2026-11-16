@@ -40,10 +40,12 @@ test("Moments collections appear in the requested order", async () => {
 test("legacy New Zealand album and image paths redirect permanently without a reverse redirect", async () => {
   const redirects = await nextConfig.redirects();
   for (const prefix of ["", "/cn"]) {
-    const destination = `${prefix}/moments/new-zealand/:path*`;
+    const destination = `${prefix}/moments/new-zealand`;
     for (const slug of ["aus-nz", "australia"]) {
-      const source = `${prefix}/moments/${slug}/:path*`;
-      assert.deepEqual(redirects.find((redirect) => redirect.source === source), { source, destination, permanent: true });
+      for (const suffix of ["", "/:path+"]) {
+        const source = `${prefix}/moments/${slug}${suffix}`;
+        assert.deepEqual(redirects.find((redirect) => redirect.source === source), { source, destination: `${destination}${suffix}`, permanent: true });
+      }
     }
     assert.ok(!redirects.some(({ source }) => source.startsWith(`${prefix}/moments/new-zealand`)));
   }
