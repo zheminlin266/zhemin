@@ -8,7 +8,7 @@ const collections = [
   { folders: ["Wuyishan"], slug: "wuyishan" },
   { folders: ["Cloud"], slug: "cloud" },
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
-  { folders: ["AUS-NZ"], slug: "aus-nz" },
+  { folders: ["AUS-NZ"], slug: "aus-nz", exclude: ["IMG_8346", "毕业照2", "海岛1"] },
   { folders: ["Tibet"], slug: "tibet" },
 ];
 const catalog = [];
@@ -85,7 +85,7 @@ async function removeAsset(url) {
   });
 }
 
-for (const { folders, slug } of collections) {
+for (const { folders, slug, exclude = [] } of collections) {
   const destination = path.join("public", "moments", slug);
   const originalsDirectory = path.join(destination, "original");
   await Promise.all([mkdir(destination, { recursive: true }), mkdir(originalsDirectory, { recursive: true })]);
@@ -93,7 +93,7 @@ for (const { folders, slug } of collections) {
 
   for (const folder of folders) {
     const sourceDirectory = path.join("Moments", folder);
-    const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
+    const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file) && !exclude.includes(path.parse(file).name)).sort();
     if (slug === "yala") files.sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
     if (slug === "aus-nz" || slug === "wuyishan") {
       const existing = previousCatalog.find((collection) => collection.slug === slug)?.photos.map((photo) => photo.name) ?? [];

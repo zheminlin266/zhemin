@@ -30,13 +30,13 @@ See [codex-handoff.md](docs/codex-handoff.md) for Codex Cloud setup, network acc
 
 Register articles and recommendations in `app/content/registry.mjs`, with `content.en.mdx` and `content.cn.mdx` under their respective directories. Add image dimensions in `app/content/image-dimensions.mjs` and follow [Visual_Rules.md](./Visual_Rules.md) for UI changes.
 
-Moments has six albums in homepage order: Yala (雅拉), Wuyishan, Cloud (云), Wanlvhu, AUS/NZ (澳新), and Tibet. The first album is selected by default. Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Yala/`, `Wuyishan/`, `Cloud/`, `Wanlvhu/`, `AUS-NZ/`, or `Tibet/`, then run:
+Moments has six albums in homepage order: Yala (雅拉), Wuyishan, Cloud (云), Wanlvhu, New Zealand (新西兰), and Tibet. The first album is selected by default. Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. New Zealand keeps the existing `aus-nz` URL slug and `AUS-NZ/` source folder. Place source JPEGs under the ignored `Moments/` directory in `Yala/`, `Wuyishan/`, `Cloud/`, `Wanlvhu/`, `AUS-NZ/`, or `Tibet/`, then run:
 
 ```bash
 node scripts/prepare-moments.mjs
 ```
 
-Existing New Zealand photos precede Australia photos in the combined `aus-nz` album. Cloud JPEG filenames are numeric (e.g. `6.jpg`, `6.5.jpg`, `10.jpg`) and are sorted by number. Yala filenames use numbered suffixes (`yala_1.jpg`, `yala_2.jpg`, etc.) and are sorted naturally. The script writes WebP thumbnails, full-resolution JPEGs without location metadata, and `app/content/moment-images.json`. Add bilingual alt text in `app/content/moments.mjs`; never commit the source photos in `Moments/`.
+New Zealand contains three photos in their existing order. The album's `exclude` setting lists the former Australia photo names without extensions so image preparation does not republish them; the local originals are retained. Cloud JPEG filenames are numeric (e.g. `6.jpg`, `6.5.jpg`, `10.jpg`) and are sorted by number. Yala filenames use numbered suffixes (`yala_1.jpg`, `yala_2.jpg`, etc.) and are sorted naturally. The script writes WebP thumbnails, full-resolution JPEGs without location metadata, and `app/content/moment-images.json`. Add bilingual alt text in `app/content/moments.mjs`; never commit the source photos in `Moments/`.
 
 ## Search metadata
 
