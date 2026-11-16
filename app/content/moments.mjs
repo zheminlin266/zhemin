@@ -2,6 +2,15 @@ import imageCatalog from "./moment-images.json" with { type: "json" };
 import { languages, SITE_URL } from "./registry.mjs";
 
 const descriptions = {
+  yala: {
+    yala_1: ["厚云下的雅拉雪山与阳光照亮的草原", "Yala's snowy peaks and sunlit grassland beneath heavy clouds"],
+    yala_2: ["金色阳光照亮的雅拉主峰与山间云层", "Golden sunlight on Yala's main peak beneath mountain clouds"],
+    yala_3: ["粉色晚霞映照的雅拉雪山全景", "A panorama of Yala's snowy peaks in pink evening light"],
+    yala_4: ["蓝灰色云层下泛着暖光的连绵雪峰", "Warm light on a range of snowy peaks beneath blue-gray clouds"],
+    yala_5: ["云影下的雅拉雪山与辽阔草原", "Yala's snowy mountains and open grassland beneath shifting clouds"],
+    yala_6: ["晴朗蓝天下的雅拉雪山与褐色草原", "Yala's snowy peaks and brown grassland beneath a clear blue sky"],
+    yala_7: ["暮色中泛着粉色余晖的雅拉雪山", "Pink afterglow on Yala's snowy peaks at dusk"],
+  },
   wuyishan: {
     IMG_20260912_222251: ["溪流、亭子与远处的群山", "A stream and pavilion beneath distant mountains"],
     IMG_20260912_222345: ["晚霞下的树木与水边建筑", "Trees and waterside buildings at dusk"],
@@ -103,12 +112,14 @@ const labels = {
   "aus-nz": { cn: "澳新", en: "AUS/NZ" },
   tibet: { cn: "西藏", en: "Tibet" },
   cloud: { cn: "云", en: "Cloud" },
+  yala: { cn: "雅拉", en: "Yala" },
 };
 
 const music = {
   wuyishan: { src: "/music/ryuichi-sakamoto-aqua.mp3", title: "Aqua", artist: "Ryuichi Sakamoto" },
   cloud: { src: "/music/hayd-head-in-the-clouds.mp3", title: "Head In The Clouds", artist: "Hayd" },
   wanlvhu: { src: "/music/olafur-arnalds-saman.mp3", title: "saman", artist: "Ólafur Arnalds" },
+  yala: { src: "/music/chance-pena-hayd-how-long-how-low.mp3", title: "How Long, How Low?", artist: "Chance Peña, Hayd" },
 };
 
 export const moments = imageCatalog.map(({ slug, photos }) => ({
