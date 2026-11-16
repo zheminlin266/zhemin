@@ -21,12 +21,17 @@ function hasGpsPointer(exif) {
 
 test("Moments collections appear in the requested order", async () => {
   assert.deepEqual(moments.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu", "new-zealand", "tibet"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 3, 8]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 3, 6]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
   const newZealand = getMoment("new-zealand");
   assert.deepEqual(newZealand.label, { cn: "新西兰", en: "New Zealand" });
   assert.deepEqual(newZealand.photos.map(({ name }) => name), ["新西兰1", "新西兰2", "新西兰徒步"]);
+  assert.deepEqual(getMoment("tibet").photos.map(({ name }) => name), ["布达拉宫", "梅里雪山", "梅里雪山2", "梅里雪山3", "香格里拉寺", "香格里拉寺和和尚"]);
+  for (const id of ["p-e9d163a3a54f", "p-0e7674d5a5a5"]) {
+    await assert.rejects(access(`public/moments/tibet/${id}-thumb.webp`), { code: "ENOENT" });
+    await assert.rejects(access(`public/moments/tibet/original/${id}.jpg`), { code: "ENOENT" });
+  }
   for (const id of ["p-3a9cea593c22", "p-3494d317f37e", "p-1cfa103ffbfb"]) {
     await assert.rejects(access(`public/moments/new-zealand/${id}-thumb.webp`), { code: "ENOENT" });
     await assert.rejects(access(`public/moments/new-zealand/original/${id}.jpg`), { code: "ENOENT" });
