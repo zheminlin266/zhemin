@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { access, readdir } from "node:fs/promises";
 import test from "node:test";
 import sharp from "sharp";
+import nextConfig from "../next.config.mjs";
 import { createMomentMetadata, getMoment, momentPath, moments } from "../app/content/moments.mjs";
 
 function hasGpsPointer(exif) {
@@ -19,20 +20,32 @@ function hasGpsPointer(exif) {
 }
 
 test("Moments collections appear in the requested order", async () => {
-  assert.deepEqual(moments.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet"]);
+  assert.deepEqual(moments.map(({ slug }) => slug), ["yala", "wuyishan", "cloud", "wanlvhu", "new-zealand", "tibet"]);
   assert.deepEqual(moments.map(({ photos }) => photos.length), [7, 46, 11, 12, 3, 8]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
-  const newZealand = getMoment("aus-nz");
+  const newZealand = getMoment("new-zealand");
   assert.deepEqual(newZealand.label, { cn: "新西兰", en: "New Zealand" });
   assert.deepEqual(newZealand.photos.map(({ name }) => name), ["新西兰1", "新西兰2", "新西兰徒步"]);
   for (const id of ["p-3a9cea593c22", "p-3494d317f37e", "p-1cfa103ffbfb"]) {
-    await assert.rejects(access(`public/moments/aus-nz/${id}-thumb.webp`), { code: "ENOENT" });
-    await assert.rejects(access(`public/moments/aus-nz/original/${id}.jpg`), { code: "ENOENT" });
+    await assert.rejects(access(`public/moments/new-zealand/${id}-thumb.webp`), { code: "ENOENT" });
+    await assert.rejects(access(`public/moments/new-zealand/original/${id}.jpg`), { code: "ENOENT" });
   }
-  for (const retired of ["new-zealand", "australia"]) {
+  for (const retired of ["aus-nz", "australia"]) {
     assert.equal(getMoment(retired), undefined);
     await assert.rejects(access(`public/moments/${retired}`), { code: "ENOENT" });
+  }
+});
+
+test("legacy New Zealand album and image paths redirect permanently without a reverse redirect", async () => {
+  const redirects = await nextConfig.redirects();
+  for (const prefix of ["", "/cn"]) {
+    const destination = `${prefix}/moments/new-zealand/:path*`;
+    for (const slug of ["aus-nz", "australia"]) {
+      const source = `${prefix}/moments/${slug}/:path*`;
+      assert.deepEqual(redirects.find((redirect) => redirect.source === source), { source, destination, permanent: true });
+    }
+    assert.ok(!redirects.some(({ source }) => source.startsWith(`${prefix}/moments/new-zealand`)));
   }
 });
 

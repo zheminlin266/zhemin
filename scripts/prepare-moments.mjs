@@ -8,7 +8,7 @@ const collections = [
   { folders: ["Wuyishan"], slug: "wuyishan" },
   { folders: ["Cloud"], slug: "cloud" },
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
-  { folders: ["AUS-NZ"], slug: "aus-nz", exclude: ["IMG_8346", "毕业照2", "海岛1"] },
+  { folders: ["AUS-NZ"], slug: "new-zealand", exclude: ["IMG_8346", "毕业照2", "海岛1"] },
   { folders: ["Tibet"], slug: "tibet" },
 ];
 const catalog = [];
@@ -95,7 +95,7 @@ for (const { folders, slug, exclude = [] } of collections) {
     const sourceDirectory = path.join("Moments", folder);
     const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file) && !exclude.includes(path.parse(file).name)).sort();
     if (slug === "yala") files.sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
-    if (slug === "aus-nz" || slug === "wuyishan") {
+    if (slug === "new-zealand" || slug === "wuyishan") {
       const existing = previousCatalog.find((collection) => collection.slug === slug)?.photos.map((photo) => photo.name) ?? [];
       files.sort((a, b) => {
         const aIndex = existing.indexOf(path.parse(a).name);

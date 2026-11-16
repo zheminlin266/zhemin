@@ -73,7 +73,7 @@ const descriptions = {
     IMG_20260920_134552: ["树枝环绕的开阔湖面", "An open stretch of lake framed by tree branches"],
     IMG_20260920_191047: ["树荫下蓝绿色的湖面", "Blue-green lake water beneath a canopy of trees"],
   },
-  "aus-nz": {
+  "new-zealand": {
     新西兰1: ["湖边的长椅与远处的雪山", "A bench beside a lake with snow-capped mountains beyond"],
     新西兰2: ["蓝绿色的湖水与远处的雪山", "Blue-green lake water beneath distant snowy mountains"],
     新西兰徒步: ["积雪覆盖的山间徒步小径", "A snow-covered hiking trail through the mountains"],
@@ -106,7 +106,7 @@ const descriptions = {
 const labels = {
   wuyishan: { cn: "武夷山", en: "Wuyishan" },
   wanlvhu: { cn: "万绿湖", en: "Wanlvhu" },
-  "aus-nz": { cn: "新西兰", en: "New Zealand" },
+  "new-zealand": { cn: "新西兰", en: "New Zealand" },
   tibet: { cn: "西藏", en: "Tibet" },
   cloud: { cn: "云", en: "Cloud" },
   yala: { cn: "雅拉", en: "Yala" },

@@ -9,9 +9,9 @@ const nextConfig = {
     return [
       { source: "/en", destination: "/", permanent: true },
       { source: "/en/:path*", destination: "/:path*", permanent: true },
-      ...["new-zealand", "australia"].flatMap((slug) => [
-        { source: `/moments/${slug}`, destination: "/moments/aus-nz", permanent: true },
-        { source: `/cn/moments/${slug}`, destination: "/cn/moments/aus-nz", permanent: true },
+      ...["aus-nz", "australia"].flatMap((slug) => [
+        { source: `/moments/${slug}/:path*`, destination: "/moments/new-zealand/:path*", permanent: true },
+        { source: `/cn/moments/${slug}/:path*`, destination: "/cn/moments/new-zealand/:path*", permanent: true },
       ]),
     ];
   },
