@@ -30,13 +30,13 @@ See [codex-handoff.md](docs/codex-handoff.md) for Codex Cloud setup, network acc
 
 Register articles and recommendations in `app/content/registry.mjs`, with `content.en.mdx` and `content.cn.mdx` under their respective directories. Add image dimensions in `app/content/image-dimensions.mjs` and follow [Visual_Rules.md](./Visual_Rules.md) for UI changes.
 
-Moments has five albums: Wuyishan, Wanlvhu, AUS/NZ (澳新), Tibet, and Cloud (云). Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Wuyishan/`, `Wanlvhu/`, `AUS-NZ/`, `Tibet/`, or `Cloud/`, then run:
+Moments has six albums: Wuyishan, Cloud (云), Wanlvhu, AUS/NZ (澳新), Tibet, and Yala (雅拉). Album pages live at `/moments/<slug>` and `/cn/moments/<slug>`. Place source JPEGs under the ignored `Moments/` directory in `Wuyishan/`, `Cloud/`, `Wanlvhu/`, `AUS-NZ/`, `Tibet/`, or `Yala/`, then run:
 
 ```bash
 node scripts/prepare-moments.mjs
 ```
 
-Existing New Zealand photos precede Australia photos in the combined `aus-nz` album. Cloud JPEG filenames are numeric (e.g. `6.jpg`, `6.5.jpg`, `10.jpg`) and are sorted by number. The script writes WebP thumbnails, full-resolution JPEGs without location metadata, and `app/content/moment-images.json`. Add bilingual alt text in `app/content/moments.mjs`; never commit the source photos in `Moments/`.
+Existing New Zealand photos precede Australia photos in the combined `aus-nz` album. Cloud JPEG filenames are numeric (e.g. `6.jpg`, `6.5.jpg`, `10.jpg`) and are sorted by number. Yala filenames use numbered suffixes (`yala_1.jpg`, `yala_2.jpg`, etc.) and are sorted naturally. The script writes WebP thumbnails, full-resolution JPEGs without location metadata, and `app/content/moment-images.json`. Add bilingual alt text in `app/content/moments.mjs`; never commit the source photos in `Moments/`.
 
 ## Search metadata
 

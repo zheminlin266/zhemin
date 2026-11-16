@@ -19,8 +19,8 @@ function hasGpsPointer(exif) {
 }
 
 test("Moments collections appear in the requested order", async () => {
-  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet"]);
-  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 11, 12, 6, 8]);
+  assert.deepEqual(moments.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu", "aus-nz", "tibet", "yala"]);
+  assert.deepEqual(moments.map(({ photos }) => photos.length), [46, 11, 12, 6, 8, 7]);
   assert.deepEqual(getMoment("cloud").label, { cn: "云", en: "Cloud" });
   assert.deepEqual(getMoment("cloud").photos.map(({ name }) => name), ["1", "2", "3", "4", "5", "6", "6.5", "7", "8", "9", "10"]);
   const combined = getMoment("aus-nz");
@@ -32,18 +32,27 @@ test("Moments collections appear in the requested order", async () => {
   }
 });
 
-test("Wuyishan, Cloud, and Wanlvhu have distinct background music with available audio files", async () => {
+test("Wuyishan, Cloud, Wanlvhu, and Yala have distinct background music with available audio files", async () => {
   const musicalCollections = moments.filter(({ music }) => music);
-  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu"]);
+  assert.deepEqual(musicalCollections.map(({ slug }) => slug), ["wuyishan", "cloud", "wanlvhu", "yala"]);
   assert.equal(getMoment("wuyishan").music.title, "Aqua");
   assert.equal(getMoment("cloud").music.title, "Head In The Clouds");
   assert.equal(getMoment("wanlvhu").music.title, "saman");
   assert.equal(getMoment("wanlvhu").music.artist, "Ólafur Arnalds");
-  assert.equal(new Set(musicalCollections.map(({ music }) => music.src)).size, 3);
+  assert.equal(getMoment("yala").music.title, "How Long, How Low?");
+  assert.equal(getMoment("yala").music.artist, "Chance Peña, Hayd");
+  assert.equal(new Set(musicalCollections.map(({ music }) => music.src)).size, 4);
   for (const { music } of musicalCollections) {
     assert.ok(music.artist);
     await access(`public${music.src}`);
   }
+});
+
+test("Yala uses bilingual labels and numbered, correctly oriented panorama photos", () => {
+  const collection = getMoment("yala");
+  assert.deepEqual(collection.label, { cn: "雅拉", en: "Yala" });
+  assert.deepEqual(collection.photos.map(({ name }) => name), ["yala_1", "yala_2", "yala_3", "yala_4", "yala_5", "yala_6", "yala_7"]);
+  assert.ok(collection.photos.every(({ width, height, thumbHeight }) => width > height && width / height >= 2.5 && thumbHeight === 720));
 });
 
 for (const collection of moments) {

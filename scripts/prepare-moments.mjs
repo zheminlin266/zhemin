@@ -9,6 +9,7 @@ const collections = [
   { folders: ["Wanlvhu"], slug: "wanlvhu" },
   { folders: ["AUS-NZ"], slug: "aus-nz" },
   { folders: ["Tibet"], slug: "tibet" },
+  { folders: ["Yala"], slug: "yala" },
 ];
 const catalog = [];
 const previousCatalog = JSON.parse(await readFile("app/content/moment-images.json", "utf8"));
@@ -93,6 +94,7 @@ for (const { folders, slug } of collections) {
   for (const folder of folders) {
     const sourceDirectory = path.join("Moments", folder);
     const files = (await readdir(sourceDirectory)).filter((file) => /\.jpe?g$/i.test(file)).sort();
+    if (slug === "yala") files.sort((a, b) => a.localeCompare(b, "en", { numeric: true }));
     if (slug === "aus-nz" || slug === "wuyishan") {
       const existing = previousCatalog.find((collection) => collection.slug === slug)?.photos.map((photo) => photo.name) ?? [];
       files.sort((a, b) => {
