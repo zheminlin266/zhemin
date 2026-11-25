@@ -118,7 +118,7 @@ test("both homepages connect the brand to the same person and their visible tran
     assert.equal(person.url, `${SITE_URL}/`);
     assert.equal(person.name, "Zhemin Lin");
     assert.equal(person.alternateName, "Zhemin");
-    assert.equal(person.description, homeCopy[language].intro[2]);
+    assert.equal(person.description, homeCopy[language].intro[3]);
     assert.equal(metadata.title, "Zhemin Lin");
     assert.equal(metadata.openGraph.title, titles[language]);
     assert.equal(metadata.twitter.title, titles[language]);
