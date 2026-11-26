@@ -78,13 +78,13 @@ export default function HomePage({ language }) {
           </div>
         </header>
 
-        <section className="section rise" style={{ "--delay": "120ms" }} aria-labelledby="projects-heading">
-          <h2 id="projects-heading"><span className="section-marker" aria-hidden="true" />{copy.projectsHeading}</h2>
-          <LinkList items={projects} language={language} />
-        </section>
-        <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="articles-heading">
+        <section className="section rise" style={{ "--delay": "120ms" }} aria-labelledby="articles-heading">
           <h2 id="articles-heading"><span className="section-marker" aria-hidden="true" />{copy.articlesHeading}</h2>
           <LinkList items={articles} language={language} />
+        </section>
+        <section className="section rise" style={{ "--delay": "180ms" }} aria-labelledby="projects-heading">
+          <h2 id="projects-heading"><span className="section-marker" aria-hidden="true" />{copy.projectsHeading}</h2>
+          <LinkList items={projects} language={language} />
         </section>
         <section className="section rise" style={{ "--delay": "240ms" }} aria-labelledby="recommendations-heading">
           <h2 id="recommendations-heading"><span className="section-marker" aria-hidden="true" />{copy.recommendationsHeading}</h2>
