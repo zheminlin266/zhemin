@@ -62,14 +62,14 @@ export const homeCopy = {
 
 export const projects = [
   {
+    href: "https://metals.zhemin.ltd/",
+    year: "2026",
+    title: { cn: "铜金供给信息跟踪", en: "Copper & Gold Supply Tracker" },
+  },
+  {
     href: "https://agora.zhemin.ltd/",
     year: "2026",
     title: { cn: "对声网的投资研究", en: "Agora Equity Research" },
-  },
-  {
-    href: "https://metals.zhemin.ltd/",
-    year: "2026",
-    title: { cn: "金银铜供需信息", en: "Gold, Silver & Copper Supply–Demand" },
   },
 ];
 
