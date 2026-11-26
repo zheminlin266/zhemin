@@ -16,6 +16,7 @@ export const homeCopy = {
     themeLight: "切换为浅色主题",
     settings: "页面设置",
     intro: [
+      "兴趣使然的地球online老派玩家。",
       "在这个因科技而剧变的时代，战术勤奋弥补不了战略懒惰。",
       "真正重要的是找好视角，提好问题，给对权重，承担选择。",
       "曾在私募基金和家族办公室进行基本面研究，重点关注科技、消费行业。前华润万象商业数据分析师。",
@@ -40,6 +41,7 @@ export const homeCopy = {
     themeLight: "Switch to light theme",
     settings: "Page settings",
     intro: [
+      "A curiosity-driven old-school Earth Online player.",
       "In an age of rapid technological change, tactical execution can’t make up for poor strategic thinking.",
       "The real work is finding the right angle, asking the right questions, setting the right priorities, and owning the decisions that follow.",
       "I conducted fundamental research at a private equity fund and family office, focusing on technology and consumer sectors. Previously, a commercial data analyst at CR Mixc Lifestyle.",
@@ -283,7 +285,7 @@ export function createHomeJsonLd(language) {
         "@id": `${SITE_URL}/#person`,
         name: "Zhemin Lin",
         alternateName: "Zhemin",
-        description: homeCopy[language].intro[2],
+        description: homeCopy[language].intro[3],
         url: `${SITE_URL}/`,
         image: new URL("/zhemin-profile.webp", SITE_URL).toString(),
         sameAs: ["https://x.com/zheminlin", "https://github.com/zheminlin266"],
