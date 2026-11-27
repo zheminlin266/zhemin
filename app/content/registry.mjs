@@ -62,6 +62,11 @@ export const homeCopy = {
 
 export const projects = [
   {
+    href: "https://aiinterpretability.zhemin.ltd/",
+    year: "2026",
+    title: { cn: "AI 可解释性知识库", en: "AI Interpretability" },
+  },
+  {
     href: "https://metals.zhemin.ltd/",
     year: "2026",
     title: { cn: "铜金供给信息跟踪", en: "Copper & Gold Supply Tracker" },
